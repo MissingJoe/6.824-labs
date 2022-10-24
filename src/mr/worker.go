@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strconv"
+	"time"
 )
 
 // for sorting by key.
@@ -98,7 +99,8 @@ func Worker(mapf func(string, string) []KeyValue,
 
 			sort.Sort(ByKey(intermediate))
 			oname := "mr-out-" + serverReply.FileName
-			ofile, _ := os.Create(oname)
+			ofile, _ := ioutil.TempFile("", "mr-tmp-*")
+			//ofile, _ := os.Create(oname)
 			i := 0
 			for i < len(intermediate) {
 				j := i + 1
@@ -115,6 +117,7 @@ func Worker(mapf func(string, string) []KeyValue,
 				i = j
 			}
 			ofile.Close()
+			os.Rename(ofile.Name(), oname)
 			//fmt.Printf("File %v reduce is done\n", serverReply.FileName)
 		} else if serverReply.WorkType == "Finished All" {
 			// tasks are all finished
@@ -123,6 +126,7 @@ func Worker(mapf func(string, string) []KeyValue,
 			break
 		} else if serverReply.WorkType == "wait" {
 			//fmt.Println("Waiting")
+			time.Sleep(time.Second)
 			continue
 		} else {
 			//fmt.Printf("error FileName:%v from server!\n", serverReply.FileName)

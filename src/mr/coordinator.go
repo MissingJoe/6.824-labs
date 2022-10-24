@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"sync"
+	"time"
 )
 
 type Coordinator struct {
@@ -56,6 +57,7 @@ func (c *Coordinator) Ask(args *AskArgs, reply *AskReply) error {
 	//fmt.Printf("Worker process %v is asking for task\n", args.Pid)
 	reply.ReduceNum = c.reduceNum
 	reply.MapWorkNum = ""
+	
 	c.lock.Lock()
 	if c.state == "Map" {
 		c.lock.Unlock()
@@ -89,6 +91,7 @@ func (c *Coordinator) Ask(args *AskArgs, reply *AskReply) error {
 	} else {
 		c.lock.Unlock()
 	}
+
 	c.lock.Lock()
 	if c.state == "Reduce" {
 		c.lock.Unlock()
@@ -141,14 +144,24 @@ func (c *Coordinator) Ask(args *AskArgs, reply *AskReply) error {
 
 // the RPC Finish
 func (c *Coordinator) Finish(args *FinishArgs, reply *FinishReply) error {
-	c.lock.Lock()
-	defer c.lock.Unlock()
 	if args.WorkType == "map" {
 		//fmt.Printf("Map task %v is finished\n", args.FileName)
-		c.fileMapFinished[args.FileName] = -2
+		c.lock.Lock()
+		if c.fileMapFinished[args.FileName] == -1 {
+			return nil
+		} else {
+			c.fileMapFinished[args.FileName] = -2
+		}
+		c.lock.Unlock()
 	} else if args.WorkType == "reduce" {
 		//fmt.Printf("Reduce task %v is finished\n", args.FileName)
-		c.fileReduceFinished[args.FileName] = -2
+		c.lock.Lock()
+		if c.fileReduceFinished[args.FileName] == -1 {
+			return nil
+		} else {
+			c.fileReduceFinished[args.FileName] = -2
+		}
+		c.lock.Unlock()
 	} else {
 		//fmt.Println("error worktype")
 	}
@@ -210,7 +223,7 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 		c.fileMap[file] = strconv.Itoa(i)
 		i++
 	}
-	for i := 0; i < nReduce; i++ {
+	for i := 0; i < nReduce; i++ { 
 		c.fileReduceFinished[strconv.Itoa(i)] = -1
 	}
 	c.server()
@@ -220,19 +233,53 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 		fmt.Println("Map mode")
 		fmt.Printf("\n")
 	*/
-	// go func() {
-	// 	for {
-	// 		time.Sleep(10 * time.Second)
-	// 		c.lock.Lock()
-	// 		if c.state == "Map" {
-
-	// 		} else if c.state == "Reduce" {
-
-	// 		} else {
-	// 			break
-	// 		}
-	// 		c.lock.Unlock()
-	// 	}
-	// } ()
+	go func() {
+		for {
+			time.Sleep(1)
+			c.lock.Lock()
+			if c.state == "Map" {
+				c.lock.Unlock()
+				for file, _ := range c.fileMap {
+					c.lock.Lock()
+					if c.fileMapFinished[file] >= 0 {
+						c.lock.Unlock()
+						select {
+						case <-time.After(5 * time.Second):
+							c.lock.Lock()
+							if c.fileMapFinished[file] >= 0 {
+								//fmt.Printf("map task %v recycle\n", c.fileMap[file])
+								c.fileMapFinished[file] = -1
+							}
+							c.lock.Unlock()
+						}
+					} else {
+						c.lock.Unlock()
+					}
+				}
+			} else if c.state == "Reduce" {
+				c.lock.Unlock()
+				for i := 0; i < nReduce; i++ {
+					c.lock.Lock()
+					if c.fileReduceFinished[strconv.Itoa(i)] >= 0 {
+						c.lock.Unlock()
+						select {
+						case <-time.After(5 * time.Second):
+							c.lock.Lock()
+							if c.fileReduceFinished[strconv.Itoa(i)] >= 0 {
+								//fmt.Printf("reduce task %v recycle\n", strconv.Itoa(i))
+								c.fileReduceFinished[strconv.Itoa(i)] = -1
+							}
+							c.lock.Unlock()
+						}
+					} else {
+						c.lock.Unlock()
+					}
+				}
+			} else {
+				c.lock.Unlock()
+				break
+			}
+		}
+	} ()
 	return &c
 }

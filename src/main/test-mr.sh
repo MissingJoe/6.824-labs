@@ -323,3 +323,5 @@ else
     echo '***' FAILED SOME TESTS
     exit 1
 fi
+
+rm -f mr-*
