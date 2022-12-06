@@ -10,7 +10,6 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"strconv"
 	"time"
 )
 
@@ -47,6 +46,7 @@ func Worker(mapf func(string, string) []KeyValue,
 		//fmt.Printf("Worker process %v is asking for task\n", id)
 		serverReply := AskReply{}
 		serverReply.FileName, serverReply.WorkType, serverReply.ReduceNum, serverReply.MapWorkNum = CallForAsk(id)
+		tempFileName := make([]string, serverReply.ReduceNum)
 		if serverReply.WorkType == "map" {
 			//fmt.Printf("Work process %v is working on map task %v\n", id, serverReply.FileName)
 			// worker get "map" task
@@ -74,9 +74,8 @@ func Worker(mapf func(string, string) []KeyValue,
 				}
 			}
 			for i := 0; i < serverReply.ReduceNum; i++ {
-				outname := "mr-" + serverReply.MapWorkNum + "-" + strconv.Itoa(i)
+				tempFileName[i] = ofile[i].Name()
 				ofile[i].Close()
-				os.Rename(ofile[i].Name(), outname)
 			}
 			//fmt.Printf("File %v map is done\n", serverReply.FileName)
 		} else if serverReply.WorkType == "reduce" {
@@ -98,9 +97,7 @@ func Worker(mapf func(string, string) []KeyValue,
 			}
 
 			sort.Sort(ByKey(intermediate))
-			oname := "mr-out-" + serverReply.FileName
 			ofile, _ := ioutil.TempFile("", "mr-tmp-*")
-			//ofile, _ := os.Create(oname)
 			i := 0
 			for i < len(intermediate) {
 				j := i + 1
@@ -117,7 +114,7 @@ func Worker(mapf func(string, string) []KeyValue,
 				i = j
 			}
 			ofile.Close()
-			os.Rename(ofile.Name(), oname)
+			tempFileName[0] = ofile.Name()
 			//fmt.Printf("File %v reduce is done\n", serverReply.FileName)
 		} else if serverReply.WorkType == "Finished All" {
 			// tasks are all finished
@@ -136,7 +133,7 @@ func Worker(mapf func(string, string) []KeyValue,
 		}
 
 		// uncomment to send the Example RPC to the coordinator.
-		CallForFinish(serverReply.FileName, serverReply.WorkType)
+		CallForFinish(serverReply.FileName, serverReply.WorkType, tempFileName, id)
 	}
 }
 
@@ -154,10 +151,12 @@ func CallForAsk(pid int) (fileName string, workType string, reduceNum int, mapWo
 }
 
 // test for worker call coordinator
-func CallForFinish(fileName string, workType string) {
+func CallForFinish(fileName string, workType string, tempFile []string, id int) {
 	args := FinishArgs{}
 	args.FileName = fileName
 	args.WorkType = workType
+	args.TempFileName = tempFile
+	args.Pid = id
 	reply := FinishReply{}
 
 	ok := call("Coordinator.Finish", &args, &reply)

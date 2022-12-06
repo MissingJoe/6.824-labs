@@ -23,3 +23,10 @@
 ### 2022.10.24
 
 **PASSED ALL TESTS** lab 1 完结撒花！！！
+
+### 2022.12.6
+
+**PASSED ALL TESTS** 突然发现 lab1 存在几个 bug
+
++   临时文件写入磁盘应该由 master 完成不能给 worker 完成。思考如下过程：分配的 worker 速度慢了，master 认为它挂了于是再分配新的 worker 去工作，但是之前的 worker 并没有挂，这时候怎么保证两个 worker 不冲突。这时候就需要 commit 给 master 的时候由 master 将临时文件写入磁盘。 不然两个 worker 就冲突了。
++   由上述问题引出的问题，判断当前任务完成需要完成任务 worker 的 pid 与任务分配的 worker 的 pid 相同才能算任务完成。二者 pid 不同就说明，存在了上面的问题，只信当前任务分配的 worker 进程的结果，其他的都不信。其他的 worker 由于此时只有任务完成的临时文件，没有写入磁盘，所以直接丢弃这些文件。

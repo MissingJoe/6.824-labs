@@ -40,6 +40,8 @@ type AskReply struct {
 type FinishArgs struct {
 	FileName string
 	WorkType string
+	TempFileName []string
+	Pid      int
 }
 
 type FinishReply struct {

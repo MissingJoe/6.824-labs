@@ -148,20 +148,42 @@ func (c *Coordinator) Finish(args *FinishArgs, reply *FinishReply) error {
 		//fmt.Printf("Map task %v is finished\n", args.FileName)
 		c.lock.Lock()
 		if c.fileMapFinished[args.FileName] == -1 {
+			c.lock.Unlock()
+			return nil
+		} else if args.Pid != c.fileMapFinished[args.FileName] {
+			c.lock.Unlock()
+			for i := 0; i < c.reduceNum; i++ {
+				os.Remove(args.TempFileName[i])
+			}
 			return nil
 		} else {
 			c.fileMapFinished[args.FileName] = -2
 		}
 		c.lock.Unlock()
+
+		// write file in disk
+		for i := 0; i < c.reduceNum; i++ {
+			outname := "mr-" + c.fileMap[args.FileName] + "-" + strconv.Itoa(i)
+			os.Rename(args.TempFileName[i], outname)
+		}
 	} else if args.WorkType == "reduce" {
 		//fmt.Printf("Reduce task %v is finished\n", args.FileName)
 		c.lock.Lock()
 		if c.fileReduceFinished[args.FileName] == -1 {
+			c.lock.Unlock()
+			return nil
+		} else if args.Pid != c.fileReduceFinished[args.FileName] {
+			c.lock.Unlock()
+			os.Remove(args.TempFileName[0])
 			return nil
 		} else {
 			c.fileReduceFinished[args.FileName] = -2
 		}
 		c.lock.Unlock()
+
+		// write file in disk
+		outname := "mr-out-" + args.FileName
+		os.Rename(args.TempFileName[0], outname)
 	} else {
 		//fmt.Println("error worktype")
 	}
