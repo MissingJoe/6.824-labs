@@ -7,7 +7,7 @@ This is a repo for missingjoe to record the timeline of working on 6.824 labs.
 |                         Lab                         | Status  |
 | :-------------------------------------------------: | :-----: |
 |                  Lab 1: MapReduce                   | &#9745; |
-|            Lab 2A: Raft-leader election             | &#9744; |
+|            Lab 2A: Raft-leader election             | &#9745; |
 |                  Lab 2B: Raft-log                   | &#9744; |
 |              Lab 2C: Raft-persistence               | &#9744; |
 |             Lab 2D: Raft-log compaction             | &#9744; |

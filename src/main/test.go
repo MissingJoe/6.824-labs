@@ -1,9 +1,9 @@
 package main
 
 import (
-	//"fmt"
 	"fmt"
 	"sync"
+	"time"
 )
 
 type fuc struct {
@@ -26,8 +26,9 @@ func (f *fuc) a() {
 }
 
 func main() {
-	c := fuc{
-		num: 0,
+	a := time.Now()
+	time.Sleep(500 * time.Millisecond)
+	if time.Now().Sub(a) > time.Duration(500*time.Millisecond) {
+		fmt.Println("1")
 	}
-	c.a()
 }
