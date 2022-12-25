@@ -76,7 +76,7 @@ type replyMsg struct {
 }
 
 type ClientEnd struct {
-	Endname interface{}   // this end-point's name
+	endname interface{}   // this end-point's name
 	ch      chan reqMsg   // copy of Network.endCh
 	done    chan struct{} // closed when Network is cleaned up
 }
@@ -86,7 +86,7 @@ type ClientEnd struct {
 // no reply was received from the server.
 func (e *ClientEnd) Call(svcMeth string, args interface{}, reply interface{}) bool {
 	req := reqMsg{}
-	req.endname = e.Endname
+	req.endname = e.endname
 	req.svcMeth = svcMeth
 	req.argsType = reflect.TypeOf(args)
 	req.replyCh = make(chan replyMsg)
@@ -322,7 +322,7 @@ func (rn *Network) MakeEnd(endname interface{}) *ClientEnd {
 	}
 
 	e := &ClientEnd{}
-	e.Endname = endname
+	e.endname = endname
 	e.ch = rn.endCh
 	e.done = rn.done
 	rn.ends[endname] = e
