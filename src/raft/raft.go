@@ -247,25 +247,29 @@ func (rf *Raft) AppendEntry(args *AppendEntryArgs, reply *AppendEntryReply) {
 		//DPrintf("%v recive heartbeat from %v\n", rf.me, args.LeaderId)
 		reply.Success = true
 	} else {
-		//append entry
-		if rf.log[args.PrevLogIndex].Term == args.PrevLogTerm {
-			rf.log = append(rf.log, args.Entries...)
-			reply.Success = true
+		//prevlogindex is empty
+		if args.PrevLogIndex >= len(rf.log) {
+			reply.XTerm = -1
+			reply.XLen = 0
+			for i := args.PrevLogIndex; i >= len(rf.log); i-- {
+				reply.XLen++
+			}
 		} else {
-			if args.PrevLogIndex >= len(rf.log) {
-				reply.XTerm = -1
-				reply.XLen = 0
-				for i := args.PrevLogIndex; i >= len(rf.log); i-- {
-					reply.XLen++
+			if rf.log[args.PrevLogIndex].Term == args.PrevLogTerm {
+				rf.log = rf.log[:args.PrevLogIndex+1]
+				rf.log = append(rf.log, args.Entries...)
+				reply.Success = true
+			} else {
+				reply.XTerm = rf.log[args.PrevLogIndex].Term
+				i := args.PrevLogIndex
+				for ; rf.log[i].Term == reply.XTerm && i >= 1; i-- {
 				}
+				reply.XIndex = i + 1
 			}
-			reply.XTerm = rf.log[args.PrevLogIndex].Term
-			i := args.PrevLogIndex
-			for ; rf.log[i].Term == reply.XTerm; i-- {
-			}
-			reply.XIndex = i + 1
 		}
 	}
+
+	//check leadercommit
 	if args.LeaderCommit > rf.commitIndex {
 		//commit entry
 		applyMsg := ApplyMsg{
@@ -274,7 +278,11 @@ func (rf *Raft) AppendEntry(args *AppendEntryArgs, reply *AppendEntryReply) {
 			CommandIndex: args.LeaderCommit,
 		}
 		rf.applyChan <- applyMsg
-		rf.commitIndex = args.LeaderCommit
+		if args.LeaderCommit <= len(rf.log)-1 {
+			rf.commitIndex = args.LeaderCommit
+		} else {
+			rf.commitIndex = len(rf.log) - 1
+		}
 	}
 	rf.lastTimeStamp = time.Now()
 }
@@ -314,6 +322,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		Term:    term,
 	}
 	rf.log = append(rf.log, &entry)
+	index = len(rf.log) - 1
 	peersCount := len(rf.peers)
 	rf.mu.Unlock()
 
@@ -322,7 +331,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	cond := sync.NewCond(&muTemp)
 	finished := 1
 	for i := 0; i < peersCount && rf.killed() == false; i++ {
-		if i != rf.me {
+		if i != rf.me && len(rf.log)-1 >= rf.nextIndex[i] {
 			go func(i int, term int) {
 				//send heartbeat immediatelly
 				rf.mu.Lock()
@@ -340,7 +349,6 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 				}
 				appendEntryArgs.Entries = append(appendEntryArgs.Entries, &entry)
 				appendEntryReply := AppendEntryReply{}
-				////DPrintf("%v send heart beat to %v\n", rf.me, i)
 				ok := rf.sendAppendEntry(i, &appendEntryArgs, &appendEntryReply)
 				muTemp.Lock()
 				defer muTemp.Unlock()
@@ -358,20 +366,56 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 					rf.mu.Unlock()
 				}
 				for !appendEntryReply.Success {
-					
+					//prelogindex is empty entry
+					if appendEntryReply.XTerm == -1 {
+						rf.mu.Lock()
+						appendEntryArgs.LeaderCommit = rf.commitIndex
+						appendEntryArgs.Entries = append(rf.log[appendEntryArgs.PrevLogIndex-appendEntryReply.XLen+1:appendEntryArgs.PrevLogIndex+1], appendEntryArgs.Entries...)
+						appendEntryArgs.PrevLogIndex = appendEntryArgs.PrevLogIndex - appendEntryReply.XLen
+						appendEntryArgs.PrevLogTerm = rf.log[appendEntryArgs.PrevLogIndex].Term
+						rf.nextIndex[i] = appendEntryArgs.PrevLogIndex + 1 - appendEntryReply.XLen
+						rf.mu.Unlock()
+						appendEntryReply = AppendEntryReply{}
+					} else {
+						rf.mu.Lock()
+						i := appendEntryArgs.PrevLogIndex - 1
+						for ; i >= appendEntryReply.XIndex; i-- {
+							if rf.log[i].Term == appendEntryReply.XTerm {
+								break
+							}
+						}
+						appendEntryArgs.LeaderCommit = rf.commitIndex
+						appendEntryArgs.Entries = append(rf.log[i+1:appendEntryArgs.PrevLogIndex+1], appendEntryArgs.Entries...)
+						appendEntryArgs.PrevLogIndex = i
+						appendEntryArgs.PrevLogTerm = rf.log[appendEntryArgs.PrevLogIndex].Term
+						rf.nextIndex[i] = i + 1
+						rf.mu.Unlock()
+						appendEntryReply = AppendEntryReply{}
+					}
+					rf.sendAppendEntry(i, &appendEntryArgs, &appendEntryReply)
 				}
 				finished++
+				rf.matchIndex[i] = appendEntryArgs.PrevLogIndex + len(appendEntryArgs.Entries)
+				rf.nextIndex[i] = rf.matchIndex[i] + 1
 				cond.Broadcast()
 			}(i, term)
 		}
 	}
 	muTemp.Lock()
-	for finished < peersCount {
+	for finished < peersCount/2 {
 		cond.Wait()
 	}
+	rf.mu.Lock()
+	rf.lastApplied++
+	applyMsg := ApplyMsg{
+		CommandValid: true,
+		Command:      command,
+		CommandIndex: index,
+	}
+	rf.applyChan <- applyMsg
+	rf.mu.Unlock()
 	////DPrintf("leader %v finish heartbeat\n", rf.me)
 	muTemp.Unlock()
-
 	return index, term, isLeader
 }
 
@@ -508,7 +552,7 @@ func (rf *Raft) startElection() {
 		rf.state = leader
 		rf.votedFor = -1
 		for i := 0; i < peersCount; i++ {
-			rf.nextIndex[i] = len(rf.log) + 1
+			rf.nextIndex[i] = len(rf.log)
 			rf.matchIndex[i] = 0
 		}
 		//send heartbeat immediately
@@ -541,7 +585,7 @@ func (rf *Raft) ticker() {
 			time.Sleep(200 * time.Millisecond)
 			go rf.broadCastHeartBeat()
 		}
-		time.Sleep(time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 	}
 }
 
