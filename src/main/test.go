@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
-type c struct {
-	a int
-	b int
-}
-
-func f(a *int, b *int) {
-	*b = *a
+func b() int {
+	go func() {
+		for {
+			fmt.Println("1111")
+		}
+	}()
+	fmt.Println("2222")
+	time.Sleep(5000)
+	return 1
 }
 
 func main() {
-	h := c{a: 1}
-
-	fmt.Println(h.b)
+	b()
 }

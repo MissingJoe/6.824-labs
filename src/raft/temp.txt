@@ -1,0 +1,51 @@
+//appendentry broadcast
+for !heartBeatReply.Success {
+	//prelogindex is empty entry
+	if heartBeatReply.XTerm == -1 {
+		rf.mu.Lock()
+		heartBeatArgs.LeaderCommit = rf.commitIndex
+		heartBeatArgs.Entries = append(rf.log[heartBeatArgs.PrevLogIndex-heartBeatReply.XLen+1:heartBeatArgs.PrevLogIndex+1], heartBeatArgs.Entries...)
+		heartBeatArgs.PrevLogIndex = heartBeatArgs.PrevLogIndex - heartBeatReply.XLen
+		heartBeatArgs.PrevLogTerm = rf.log[heartBeatArgs.PrevLogIndex].Term
+		rf.nextIndex[i] = heartBeatArgs.PrevLogIndex + 1 - heartBeatReply.XLen
+		rf.mu.Unlock()
+		heartBeatReply = AppendEntryReply{}
+	} else {
+		rf.mu.Lock()
+		i := heartBeatArgs.PrevLogIndex - 1
+		for ; i >= heartBeatReply.XIndex; i-- {
+			if rf.log[i].Term == heartBeatReply.XTerm {
+				break
+			}
+		}
+		heartBeatArgs.LeaderCommit = rf.commitIndex
+		heartBeatArgs.Entries = append(rf.log[i+1:heartBeatArgs.PrevLogIndex+1], heartBeatArgs.Entries...)
+		heartBeatArgs.PrevLogIndex = i
+		heartBeatArgs.PrevLogTerm = rf.log[heartBeatArgs.PrevLogIndex].Term
+		rf.nextIndex[i] = i + 1
+		rf.mu.Unlock()
+		heartBeatReply = AppendEntryReply{}
+	}
+	rf.sendAppendEntry(i, &heartBeatArgs, &heartBeatReply)
+}
+
+// appendentry rpc
+if args.PrevLogIndex >= len(rf.log) {
+	reply.XTerm = -1
+	reply.XLen = 0
+	for i := args.PrevLogIndex; i >= len(rf.log); i-- {
+		reply.XLen++
+	}
+} else {
+	if rf.log[args.PrevLogIndex].Term == args.PrevLogTerm {
+		rf.log = rf.log[:args.PrevLogIndex+1]
+		rf.log = append(rf.log, args.Entries...)
+		reply.Success = true
+	} else {
+		reply.XTerm = rf.log[args.PrevLogIndex].Term
+		i := args.PrevLogIndex
+		for ; rf.log[i].Term == reply.XTerm && i >= 1; i-- {
+		}
+		reply.XIndex = i + 1
+	}
+}
