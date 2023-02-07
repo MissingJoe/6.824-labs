@@ -1,0 +1,1712 @@
+22:32:59.341514 0 election time is 420ms
+22:32:59.342027 1 election time is 597ms
+22:32:59.342501 2 election time is 505ms
+22:32:59.342669 3 election time is 776ms
+22:32:59.342814 4 election time is 516ms
+22:32:59.766790 0 election time is 508ms
+22:32:59.767638 0 start election in term 1
+22:32:59.770323 4 vote for 0 in term 1
+22:32:59.770325 1 vote for 0 in term 1
+22:32:59.771000 3 vote for 0 in term 1
+22:32:59.771231 0 become new leader in term 1
+22:32:59.771261 2 vote for 0 in term 1
+22:32:59.771488 leader 0 start heartbeat
+22:32:59.773070 1 recive heartbeat from 0 with entry length 0
+22:32:59.773140 2 recive heartbeat from 0 with entry length 0
+22:32:59.773141 3 recive heartbeat from 0 with entry length 0
+22:32:59.773084 4 recive heartbeat from 0 with entry length 0
+22:32:59.773223 2 match preindex 0 and term 0
+22:32:59.773440 1 match preindex 0 and term 0
+22:32:59.773533 4 match preindex 0 and term 0
+22:32:59.799208 0 use Start in index 1 and term 1
+22:32:59.799550 0 log is: 0 1 
+22:32:59.978808 leader 0 start heartbeat
+22:32:59.979630 1 recive heartbeat from 0 with entry length 1
+22:32:59.979672 4 recive heartbeat from 0 with entry length 1
+22:32:59.979732 4 log is: 0 1 
+22:32:59.979738 1 log is: 0 1 
+22:32:59.979784 4 match preindex 0 and term 0
+22:32:59.979639 2 recive heartbeat from 0 with entry length 1
+22:32:59.979759 3 recive heartbeat from 0 with entry length 1
+22:32:59.979812 1 match preindex 0 and term 0
+22:32:59.979936 3 log is: 0 1 
+22:32:59.979978 2 log is: 0 1 
+22:32:59.980024 3 match preindex 0 and term 0
+22:32:59.980094 2 match preindex 0 and term 0
+22:32:59.980264 0 apply entry index is 1
+22:33:00.190012 leader 0 start heartbeat
+22:33:00.192001 2 recive heartbeat from 0 with entry length 0
+22:33:00.192270 1 recive heartbeat from 0 with entry length 0
+22:33:00.192350 1 match preindex 1 and term 1
+22:33:00.192560 1 apply entry index is 1
+22:33:00.192638 2 match preindex 1 and term 1
+22:33:00.192749 4 recive heartbeat from 0 with entry length 0
+22:33:00.192891 4 match preindex 1 and term 1
+22:33:00.192941 2 apply entry index is 1
+22:33:00.192956 3 recive heartbeat from 0 with entry length 0
+22:33:00.193138 3 match preindex 1 and term 1
+22:33:00.193152 4 apply entry index is 1
+22:33:00.193350 3 apply entry index is 1
+22:33:00.401351 leader 0 start heartbeat
+22:33:00.402883 1 recive heartbeat from 0 with entry length 0
+22:33:00.402970 1 match preindex 1 and term 1
+22:33:00.403355 4 recive heartbeat from 0 with entry length 0
+22:33:00.403436 4 match preindex 1 and term 1
+22:33:00.403554 3 recive heartbeat from 0 with entry length 0
+22:33:00.403690 3 match preindex 1 and term 1
+22:33:00.404176 2 recive heartbeat from 0 with entry length 0
+22:33:00.404295 2 match preindex 1 and term 1
+22:33:00.612089 leader 0 start heartbeat
+22:33:00.615273 3 recive heartbeat from 0 with entry length 0
+22:33:00.615491 3 match preindex 1 and term 1
+22:33:00.615774 1 recive heartbeat from 0 with entry length 0
+22:33:00.615906 1 match preindex 1 and term 1
+22:33:00.616160 2 recive heartbeat from 0 with entry length 0
+22:33:00.616285 2 match preindex 1 and term 1
+22:33:00.617046 4 recive heartbeat from 0 with entry length 0
+22:33:00.617216 4 match preindex 1 and term 1
+22:33:00.690675 0 use Start in index 2 and term 1
+22:33:00.690907 0 log is: 0 1 1 
+22:33:00.691080 0 use Start in index 3 and term 1
+22:33:00.691275 0 log is: 0 1 1 1 
+22:33:00.691548 0 use Start in index 4 and term 1
+22:33:00.691747 0 log is: 0 1 1 1 1 
+22:33:00.691924 0 use Start in index 5 and term 1
+22:33:00.692119 0 log is: 0 1 1 1 1 1 
+22:33:00.692296 0 use Start in index 6 and term 1
+22:33:00.692534 0 log is: 0 1 1 1 1 1 1 
+22:33:00.692750 0 use Start in index 7 and term 1
+22:33:00.692863 0 log is: 0 1 1 1 1 1 1 1 
+22:33:00.692972 0 use Start in index 8 and term 1
+22:33:00.693072 0 log is: 0 1 1 1 1 1 1 1 1 
+22:33:00.693173 0 use Start in index 9 and term 1
+22:33:00.693272 0 log is: 0 1 1 1 1 1 1 1 1 1 
+22:33:00.693383 0 use Start in index 10 and term 1
+22:33:00.693489 0 log is: 0 1 1 1 1 1 1 1 1 1 1 
+22:33:00.693583 0 use Start in index 11 and term 1
+22:33:00.693688 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.693953 0 use Start in index 12 and term 1
+22:33:00.694085 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.694210 0 use Start in index 13 and term 1
+22:33:00.694349 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.694511 0 use Start in index 14 and term 1
+22:33:00.694670 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.694892 0 use Start in index 15 and term 1
+22:33:00.695026 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.695156 0 use Start in index 16 and term 1
+22:33:00.695283 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.695382 0 use Start in index 17 and term 1
+22:33:00.695480 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.695593 0 use Start in index 18 and term 1
+22:33:00.695723 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.695817 0 use Start in index 19 and term 1
+22:33:00.695913 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.695999 0 use Start in index 20 and term 1
+22:33:00.696083 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.696167 0 use Start in index 21 and term 1
+22:33:00.696259 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.696365 0 use Start in index 22 and term 1
+22:33:00.696490 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.696587 0 use Start in index 23 and term 1
+22:33:00.696694 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.696778 0 use Start in index 24 and term 1
+22:33:00.696862 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.696989 0 use Start in index 25 and term 1
+22:33:00.697097 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.697192 0 use Start in index 26 and term 1
+22:33:00.697316 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.697396 0 use Start in index 27 and term 1
+22:33:00.697514 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.697598 0 use Start in index 28 and term 1
+22:33:00.697701 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.697814 0 use Start in index 29 and term 1
+22:33:00.697910 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.697989 0 use Start in index 30 and term 1
+22:33:00.698077 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.698165 0 use Start in index 31 and term 1
+22:33:00.698252 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.698338 0 use Start in index 32 and term 1
+22:33:00.698425 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.698600 0 use Start in index 33 and term 1
+22:33:00.698771 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.698875 0 use Start in index 34 and term 1
+22:33:00.698982 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.699080 0 use Start in index 35 and term 1
+22:33:00.699187 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.699284 0 use Start in index 36 and term 1
+22:33:00.699398 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.699489 0 use Start in index 37 and term 1
+22:33:00.699596 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.699685 0 use Start in index 38 and term 1
+22:33:00.699789 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.699880 0 use Start in index 39 and term 1
+22:33:00.699985 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.700075 0 use Start in index 40 and term 1
+22:33:00.700181 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.700272 0 use Start in index 41 and term 1
+22:33:00.700395 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.700490 0 use Start in index 42 and term 1
+22:33:00.700595 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.700775 0 use Start in index 43 and term 1
+22:33:00.700873 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.700961 0 use Start in index 44 and term 1
+22:33:00.701069 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.701153 0 use Start in index 45 and term 1
+22:33:00.701275 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.701356 0 use Start in index 46 and term 1
+22:33:00.701456 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.701539 0 use Start in index 47 and term 1
+22:33:00.701657 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.701743 0 use Start in index 48 and term 1
+22:33:00.701841 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.701927 0 use Start in index 49 and term 1
+22:33:00.702045 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.702131 0 use Start in index 50 and term 1
+22:33:00.702240 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.702330 0 use Start in index 51 and term 1
+22:33:00.702432 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.823789 leader 0 start heartbeat
+22:33:00.828900 1 recive heartbeat from 0 with entry length 50
+22:33:00.829041 1 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:00.829123 1 match preindex 1 and term 1
+22:33:01.035075 leader 0 start heartbeat
+22:33:01.038563 1 recive heartbeat from 0 with entry length 0
+22:33:01.038724 1 match preindex 51 and term 1
+22:33:01.131771 2 election time is 665ms
+22:33:01.132432 2 start election in term 2
+22:33:01.141957 4 election time is 783ms
+22:33:01.142326 4 start election in term 2
+22:33:01.245888 leader 0 start heartbeat
+22:33:01.392201 3 election time is 656ms
+22:33:01.392914 3 start election in term 2
+22:33:01.394769 4 already vote for 4 and wait for heartbeat
+22:33:01.456319 leader 0 start heartbeat
+22:33:01.641837 1 election time is 546ms
+22:33:01.642654 1 start election in term 2
+22:33:01.667896 leader 0 start heartbeat
+22:33:01.805056 2 election time is 575ms
+22:33:01.805764 2 start election in term 3
+22:33:01.807564 3 is recive big term so become fellower
+22:33:01.807846 3 vote for 2 in term 3
+22:33:01.807940 4 is recive big term so become fellower
+22:33:01.808201 4 vote for 2 in term 3
+22:33:01.809126 2 become new leader in term 3
+22:33:01.809286 leader 2 start heartbeat
+22:33:01.810027 4 recive heartbeat from 2 with entry length 0
+22:33:01.810029 3 recive heartbeat from 2 with entry length 0
+22:33:01.810146 4 match preindex 1 and term 1
+22:33:01.810204 3 match preindex 1 and term 1
+22:33:01.810673 2 use Start in index 2 and term 3
+22:33:01.810777 2 log is: 0 1 3 
+22:33:01.879420 leader 0 start heartbeat
+22:33:02.016978 leader 2 start heartbeat
+22:33:02.017712 3 recive heartbeat from 2 with entry length 1
+22:33:02.017757 4 recive heartbeat from 2 with entry length 1
+22:33:02.017798 3 log is: 0 1 3 
+22:33:02.017824 4 log is: 0 1 3 
+22:33:02.017861 3 match preindex 1 and term 1
+22:33:02.017863 4 match preindex 1 and term 1
+22:33:02.018177 2 apply entry index is 2
+22:33:02.091027 leader 0 start heartbeat
+22:33:02.197062 1 election time is 510ms
+22:33:02.197727 1 start election in term 3
+22:33:02.228236 leader 2 start heartbeat
+22:33:02.230498 4 recive heartbeat from 2 with entry length 0
+22:33:02.230504 3 recive heartbeat from 2 with entry length 0
+22:33:02.230598 4 match preindex 2 and term 3
+22:33:02.230634 3 match preindex 2 and term 3
+22:33:02.230805 4 apply entry index is 2
+22:33:02.231099 3 apply entry index is 2
+22:33:02.247107 2 use Start in index 3 and term 3
+22:33:02.247797 2 log is: 0 1 3 3 
+22:33:02.302148 leader 0 start heartbeat
+22:33:02.439329 leader 2 start heartbeat
+22:33:02.442028 3 recive heartbeat from 2 with entry length 1
+22:33:02.442180 4 recive heartbeat from 2 with entry length 1
+22:33:02.442298 3 log is: 0 1 3 3 
+22:33:02.442406 4 log is: 0 1 3 3 
+22:33:02.442498 3 match preindex 2 and term 3
+22:33:02.442608 4 match preindex 2 and term 3
+22:33:02.443485 2 apply entry index is 3
+22:33:02.513432 leader 0 start heartbeat
+22:33:02.651551 leader 2 start heartbeat
+22:33:02.653915 4 recive heartbeat from 2 with entry length 0
+22:33:02.653918 3 recive heartbeat from 2 with entry length 0
+22:33:02.654015 4 match preindex 3 and term 3
+22:33:02.654161 3 match preindex 3 and term 3
+22:33:02.654282 4 apply entry index is 3
+22:33:02.654411 3 apply entry index is 3
+22:33:02.660508 2 use Start in index 4 and term 3
+22:33:02.660645 2 log is: 0 1 3 3 3 
+22:33:02.714189 1 election time is 675ms
+22:33:02.714839 1 start election in term 4
+22:33:02.724038 leader 0 start heartbeat
+22:33:02.861767 leader 2 start heartbeat
+22:33:02.863958 3 recive heartbeat from 2 with entry length 1
+22:33:02.864291 3 log is: 0 1 3 3 3 
+22:33:02.864437 3 match preindex 3 and term 3
+22:33:02.864598 4 recive heartbeat from 2 with entry length 1
+22:33:02.864732 4 log is: 0 1 3 3 3 
+22:33:02.864853 4 match preindex 3 and term 3
+22:33:02.865384 2 apply entry index is 4
+22:33:02.935477 leader 0 start heartbeat
+22:33:03.072193 leader 2 start heartbeat
+22:33:03.074734 4 recive heartbeat from 2 with entry length 0
+22:33:03.074739 3 recive heartbeat from 2 with entry length 0
+22:33:03.074978 4 match preindex 4 and term 3
+22:33:03.075077 3 match preindex 4 and term 3
+22:33:03.075328 4 apply entry index is 4
+22:33:03.076145 3 apply entry index is 4
+22:33:03.077972 2 use Start in index 5 and term 3
+22:33:03.078194 2 log is: 0 1 3 3 3 3 
+22:33:03.145779 leader 0 start heartbeat
+22:33:03.282747 leader 2 start heartbeat
+22:33:03.285267 4 recive heartbeat from 2 with entry length 1
+22:33:03.285522 4 log is: 0 1 3 3 3 3 
+22:33:03.285584 3 log is: 0 1 3 3 3 3 
+22:33:03.285657 4 match preindex 4 and term 3
+22:33:03.285667 3 match preindex 4 and term 3
+22:33:03.286287 2 apply entry index is 5
+22:33:03.356079 leader 0 start heartbeat
+22:33:03.396827 1 election time is 453ms
+22:33:03.397455 1 start election in term 5
+22:33:03.493230 leader 2 start heartbeat
+22:33:03.495672 4 recive heartbeat from 2 with entry length 0
+22:33:03.495796 3 recive heartbeat from 2 with entry length 0
+22:33:03.495904 4 match preindex 5 and term 3
+22:33:03.496000 3 match preindex 5 and term 3
+22:33:03.496261 4 apply entry index is 5
+22:33:03.496518 3 apply entry index is 5
+22:33:03.514109 2 use Start in index 6 and term 3
+22:33:03.514253 2 log is: 0 1 3 3 3 3 3 
+22:33:03.567345 leader 0 start heartbeat
+22:33:03.704503 leader 2 start heartbeat
+22:33:03.707136 4 recive heartbeat from 2 with entry length 1
+22:33:03.707141 3 recive heartbeat from 2 with entry length 1
+22:33:03.707421 4 log is: 0 1 3 3 3 3 3 
+22:33:03.707448 3 log is: 0 1 3 3 3 3 3 
+22:33:03.707521 4 match preindex 5 and term 3
+22:33:03.707562 3 match preindex 5 and term 3
+22:33:03.708173 2 apply entry index is 6
+22:33:03.777948 leader 0 start heartbeat
+22:33:03.854117 1 election time is 502ms
+22:33:03.854294 1 start election in term 6
+22:33:03.915422 leader 2 start heartbeat
+22:33:03.916489 4 recive heartbeat from 2 with entry length 0
+22:33:03.916616 3 recive heartbeat from 2 with entry length 0
+22:33:03.916686 4 match preindex 6 and term 3
+22:33:03.916693 3 match preindex 6 and term 3
+22:33:03.916815 4 apply entry index is 6
+22:33:03.916961 3 apply entry index is 6
+22:33:03.930117 2 use Start in index 7 and term 3
+22:33:03.930344 2 log is: 0 1 3 3 3 3 3 3 
+22:33:03.988621 leader 0 start heartbeat
+22:33:04.127005 leader 2 start heartbeat
+22:33:04.127678 4 recive heartbeat from 2 with entry length 1
+22:33:04.127769 4 log is: 0 1 3 3 3 3 3 3 
+22:33:04.127802 3 recive heartbeat from 2 with entry length 1
+22:33:04.127860 4 match preindex 6 and term 3
+22:33:04.127968 3 log is: 0 1 3 3 3 3 3 3 
+22:33:04.128082 3 match preindex 6 and term 3
+22:33:04.128345 2 apply entry index is 7
+22:33:04.199913 leader 0 start heartbeat
+22:33:04.337268 leader 2 start heartbeat
+22:33:04.337994 3 recive heartbeat from 2 with entry length 0
+22:33:04.337999 4 recive heartbeat from 2 with entry length 0
+22:33:04.338305 3 match preindex 7 and term 3
+22:33:04.338318 4 match preindex 7 and term 3
+22:33:04.338500 3 apply entry index is 7
+22:33:04.338635 4 apply entry index is 7
+22:33:04.345130 2 use Start in index 8 and term 3
+22:33:04.345596 2 log is: 0 1 3 3 3 3 3 3 3 
+22:33:04.358375 1 election time is 619ms
+22:33:04.360283 1 start election in term 7
+22:33:04.411444 leader 0 start heartbeat
+22:33:04.548411 leader 2 start heartbeat
+22:33:04.549343 3 recive heartbeat from 2 with entry length 1
+22:33:04.549347 4 recive heartbeat from 2 with entry length 1
+22:33:04.549478 3 log is: 0 1 3 3 3 3 3 3 3 
+22:33:04.549592 4 log is: 0 1 3 3 3 3 3 3 3 
+22:33:04.549667 3 match preindex 7 and term 3
+22:33:04.549707 4 match preindex 7 and term 3
+22:33:04.550129 2 apply entry index is 8
+22:33:04.623457 leader 0 start heartbeat
+22:33:04.760365 leader 2 start heartbeat
+22:33:04.762532 4 recive heartbeat from 2 with entry length 0
+22:33:04.762654 4 match preindex 8 and term 3
+22:33:04.762929 3 match preindex 8 and term 3
+22:33:04.763163 3 apply entry index is 8
+22:33:04.763242 4 apply entry index is 8
+22:33:04.781114 2 use Start in index 9 and term 3
+22:33:04.781499 2 log is: 0 1 3 3 3 3 3 3 3 3 
+22:33:04.834768 leader 0 start heartbeat
+22:33:04.971543 leader 2 start heartbeat
+22:33:04.974241 3 recive heartbeat from 2 with entry length 1
+22:33:04.974428 4 recive heartbeat from 2 with entry length 1
+22:33:04.974527 4 log is: 0 1 3 3 3 3 3 3 3 3 
+22:33:04.974596 4 match preindex 8 and term 3
+22:33:04.974680 3 log is: 0 1 3 3 3 3 3 3 3 3 
+22:33:04.974791 3 match preindex 8 and term 3
+22:33:04.975330 2 apply entry index is 9
+22:33:04.982595 1 election time is 717ms
+22:33:04.983246 1 start election in term 8
+22:33:05.045778 leader 0 start heartbeat
+22:33:05.068978 2 fail in leader election in term 3
+22:33:05.192816 2 election time is 790ms
+22:33:05.193106 2 start election in term 4
+22:33:05.194276 4 vote for 2 in term 4
+22:33:05.194285 3 vote for 2 in term 4
+22:33:05.194675 2 become new leader in term 4
+22:33:05.194771 leader 2 start heartbeat
+22:33:05.195341 3 recive heartbeat from 2 with entry length 0
+22:33:05.195414 3 match preindex 9 and term 3
+22:33:05.195462 4 recive heartbeat from 2 with entry length 0
+22:33:05.195574 3 apply entry index is 9
+22:33:05.195579 4 match preindex 9 and term 3
+22:33:05.195730 4 apply entry index is 9
+22:33:05.196304 2 use Start in index 10 and term 4
+22:33:05.196399 2 log is: 0 1 3 3 3 3 3 3 3 3 4 
+22:33:05.256088 leader 0 start heartbeat
+22:33:05.403718 leader 2 start heartbeat
+22:33:05.404541 3 recive heartbeat from 2 with entry length 1
+22:33:05.404614 3 log is: 0 1 3 3 3 3 3 3 3 3 4 
+22:33:05.404672 3 match preindex 9 and term 3
+22:33:05.404714 4 recive heartbeat from 2 with entry length 1
+22:33:05.404826 4 log is: 0 1 3 3 3 3 3 3 3 3 4 
+22:33:05.404883 4 match preindex 9 and term 3
+22:33:05.405642 2 apply entry index is 10
+22:33:05.466713 leader 0 start heartbeat
+22:33:05.615760 leader 2 start heartbeat
+22:33:05.616552 4 recive heartbeat from 2 with entry length 0
+22:33:05.616559 3 recive heartbeat from 2 with entry length 0
+22:33:05.616695 3 match preindex 10 and term 4
+22:33:05.616706 4 match preindex 10 and term 4
+22:33:05.616940 4 apply entry index is 10
+22:33:05.617017 3 apply entry index is 10
+22:33:05.626538 2 use Start in index 11 and term 4
+22:33:05.626722 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 
+22:33:05.678865 leader 0 start heartbeat
+22:33:05.709774 1 election time is 609ms
+22:33:05.709916 1 start election in term 9
+22:33:05.826566 leader 2 start heartbeat
+22:33:05.827107 4 recive heartbeat from 2 with entry length 1
+22:33:05.827109 3 recive heartbeat from 2 with entry length 1
+22:33:05.827190 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 
+22:33:05.827254 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 
+22:33:05.827280 4 match preindex 10 and term 4
+22:33:05.827323 3 match preindex 10 and term 4
+22:33:05.827625 2 apply entry index is 11
+22:33:05.889272 leader 0 start heartbeat
+22:33:06.036752 leader 2 start heartbeat
+22:33:06.037327 4 recive heartbeat from 2 with entry length 0
+22:33:06.037335 3 recive heartbeat from 2 with entry length 0
+22:33:06.037398 4 match preindex 11 and term 4
+22:33:06.037455 4 apply entry index is 11
+22:33:06.037481 3 match preindex 11 and term 4
+22:33:06.037570 3 apply entry index is 11
+22:33:06.044367 2 use Start in index 12 and term 4
+22:33:06.044478 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 
+22:33:06.099600 leader 0 start heartbeat
+22:33:06.121047 3 fail in leader election in term 4
+22:33:06.247967 leader 2 start heartbeat
+22:33:06.248767 4 recive heartbeat from 2 with entry length 1
+22:33:06.248777 3 recive heartbeat from 2 with entry length 1
+22:33:06.248984 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 
+22:33:06.249080 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 
+22:33:06.249169 4 match preindex 11 and term 4
+22:33:06.249171 3 match preindex 11 and term 4
+22:33:06.249790 2 apply entry index is 12
+22:33:06.311075 leader 0 start heartbeat
+22:33:06.321997 1 election time is 664ms
+22:33:06.322246 1 start election in term 10
+22:33:06.459159 leader 2 start heartbeat
+22:33:06.459952 3 recive heartbeat from 2 with entry length 0
+22:33:06.460012 4 recive heartbeat from 2 with entry length 0
+22:33:06.460056 3 match preindex 12 and term 4
+22:33:06.460084 4 match preindex 12 and term 4
+22:33:06.460145 3 apply entry index is 12
+22:33:06.460295 4 apply entry index is 12
+22:33:06.478584 2 use Start in index 13 and term 4
+22:33:06.478740 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 
+22:33:06.521761 leader 0 start heartbeat
+22:33:06.669357 leader 2 start heartbeat
+22:33:06.669944 3 recive heartbeat from 2 with entry length 1
+22:33:06.670012 4 recive heartbeat from 2 with entry length 1
+22:33:06.670014 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 
+22:33:06.670103 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 
+22:33:06.670145 4 match preindex 12 and term 4
+22:33:06.670170 3 match preindex 12 and term 4
+22:33:06.670418 2 apply entry index is 13
+22:33:06.732757 leader 0 start heartbeat
+22:33:06.880541 leader 2 start heartbeat
+22:33:06.881457 3 recive heartbeat from 2 with entry length 0
+22:33:06.881567 3 match preindex 13 and term 4
+22:33:06.881700 4 match preindex 13 and term 4
+22:33:06.881705 3 apply entry index is 13
+22:33:06.881795 4 apply entry index is 13
+22:33:06.891490 2 use Start in index 14 and term 4
+22:33:06.891611 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 
+22:33:06.944185 leader 0 start heartbeat
+22:33:06.986546 1 election time is 500ms
+22:33:06.986828 1 start election in term 11
+22:33:07.091927 leader 2 start heartbeat
+22:33:07.093911 4 recive heartbeat from 2 with entry length 1
+22:33:07.094142 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 
+22:33:07.094187 3 recive heartbeat from 2 with entry length 1
+22:33:07.094232 4 match preindex 13 and term 4
+22:33:07.094322 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 
+22:33:07.094445 3 match preindex 13 and term 4
+22:33:07.094970 2 apply entry index is 14
+22:33:07.155145 leader 0 start heartbeat
+22:33:07.302898 leader 2 start heartbeat
+22:33:07.305826 4 recive heartbeat from 2 with entry length 0
+22:33:07.305995 3 recive heartbeat from 2 with entry length 0
+22:33:07.306058 4 match preindex 14 and term 4
+22:33:07.306102 3 match preindex 14 and term 4
+22:33:07.306422 4 apply entry index is 14
+22:33:07.306638 3 apply entry index is 14
+22:33:07.307979 2 use Start in index 15 and term 4
+22:33:07.308162 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 
+22:33:07.365434 leader 0 start heartbeat
+22:33:07.402441 4 fail in leader election in term 4
+22:33:07.497567 1 election time is 448ms
+22:33:07.498346 1 fail in leader election in term 11
+22:33:07.499251 1 start election in term 12
+22:33:07.513836 leader 2 start heartbeat
+22:33:07.514811 3 recive heartbeat from 2 with entry length 1
+22:33:07.514913 4 recive heartbeat from 2 with entry length 1
+22:33:07.515014 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 
+22:33:07.515288 3 match preindex 14 and term 4
+22:33:07.515293 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 
+22:33:07.515468 4 match preindex 14 and term 4
+22:33:07.515924 2 apply entry index is 15
+22:33:07.576240 leader 0 start heartbeat
+22:33:07.725049 leader 2 start heartbeat
+22:33:07.727690 3 recive heartbeat from 2 with entry length 0
+22:33:07.727823 4 recive heartbeat from 2 with entry length 0
+22:33:07.727927 3 match preindex 15 and term 4
+22:33:07.728013 4 match preindex 15 and term 4
+22:33:07.728151 3 apply entry index is 15
+22:33:07.728282 4 apply entry index is 15
+22:33:07.740815 2 use Start in index 16 and term 4
+22:33:07.741160 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 
+22:33:07.787389 leader 0 start heartbeat
+22:33:07.869750 1 fail in leader election in term 12
+22:33:07.936031 leader 2 start heartbeat
+22:33:07.938227 3 recive heartbeat from 2 with entry length 1
+22:33:07.938570 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 
+22:33:07.938723 3 match preindex 15 and term 4
+22:33:07.939008 4 recive heartbeat from 2 with entry length 1
+22:33:07.939175 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 
+22:33:07.939301 4 match preindex 15 and term 4
+22:33:07.939902 2 apply entry index is 16
+22:33:07.948351 1 fail in leader election in term 12
+22:33:07.948710 1 election time is 793ms
+22:33:07.948893 1 start election in term 13
+22:33:07.998717 leader 0 start heartbeat
+22:33:08.147708 leader 2 start heartbeat
+22:33:08.150424 3 recive heartbeat from 2 with entry length 0
+22:33:08.150440 4 recive heartbeat from 2 with entry length 0
+22:33:08.150564 3 match preindex 16 and term 4
+22:33:08.150607 4 match preindex 16 and term 4
+22:33:08.150779 3 apply entry index is 16
+22:33:08.150961 4 apply entry index is 16
+22:33:08.151923 2 use Start in index 17 and term 4
+22:33:08.152090 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 
+22:33:08.209090 leader 0 start heartbeat
+22:33:08.359152 leader 2 start heartbeat
+22:33:08.361406 4 recive heartbeat from 2 with entry length 1
+22:33:08.361620 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 
+22:33:08.361731 4 match preindex 16 and term 4
+22:33:08.362090 3 recive heartbeat from 2 with entry length 1
+22:33:08.362240 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 
+22:33:08.362357 3 match preindex 16 and term 4
+22:33:08.363295 2 apply entry index is 17
+22:33:08.419801 1 fail in leader election in term 13
+22:33:08.420017 leader 0 start heartbeat
+22:33:08.570126 leader 2 start heartbeat
+22:33:08.573614 3 recive heartbeat from 2 with entry length 0
+22:33:08.573614 4 recive heartbeat from 2 with entry length 0
+22:33:08.573939 3 match preindex 17 and term 4
+22:33:08.573992 4 match preindex 17 and term 4
+22:33:08.574117 3 apply entry index is 17
+22:33:08.574211 4 apply entry index is 17
+22:33:08.584648 2 use Start in index 18 and term 4
+22:33:08.585258 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 
+22:33:08.630539 leader 0 start heartbeat
+22:33:08.742662 1 election time is 737ms
+22:33:08.743347 1 start election in term 14
+22:33:08.781747 leader 2 start heartbeat
+22:33:08.783353 4 recive heartbeat from 2 with entry length 1
+22:33:08.783557 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 
+22:33:08.783699 4 match preindex 17 and term 4
+22:33:08.783825 3 recive heartbeat from 2 with entry length 1
+22:33:08.783977 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 
+22:33:08.784091 3 match preindex 17 and term 4
+22:33:08.784560 2 apply entry index is 18
+22:33:08.841790 leader 0 start heartbeat
+22:33:08.992957 leader 2 start heartbeat
+22:33:08.995495 3 recive heartbeat from 2 with entry length 0
+22:33:08.995645 4 recive heartbeat from 2 with entry length 0
+22:33:08.995708 3 match preindex 18 and term 4
+22:33:08.995756 4 match preindex 18 and term 4
+22:33:08.996032 4 apply entry index is 18
+22:33:08.996223 3 apply entry index is 18
+22:33:09.000751 2 use Start in index 19 and term 4
+22:33:09.000913 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 
+22:33:09.053562 leader 0 start heartbeat
+22:33:09.203355 leader 2 start heartbeat
+22:33:09.205841 4 recive heartbeat from 2 with entry length 1
+22:33:09.205862 3 recive heartbeat from 2 with entry length 1
+22:33:09.206184 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 
+22:33:09.206524 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 
+22:33:09.206619 3 match preindex 18 and term 4
+22:33:09.207254 2 apply entry index is 19
+22:33:09.260139 1 fail in leader election in term 14
+22:33:09.264071 leader 0 start heartbeat
+22:33:09.413528 leader 2 start heartbeat
+22:33:09.416184 4 recive heartbeat from 2 with entry length 0
+22:33:09.416355 4 match preindex 19 and term 4
+22:33:09.416685 4 apply entry index is 19
+22:33:09.416745 3 recive heartbeat from 2 with entry length 0
+22:33:09.416919 3 match preindex 19 and term 4
+22:33:09.417084 3 apply entry index is 19
+22:33:09.435585 2 use Start in index 20 and term 4
+22:33:09.435958 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 
+22:33:09.475301 leader 0 start heartbeat
+22:33:09.487630 1 election time is 495ms
+22:33:09.487951 1 start election in term 15
+22:33:09.624516 leader 2 start heartbeat
+22:33:09.627201 3 recive heartbeat from 2 with entry length 1
+22:33:09.627222 4 recive heartbeat from 2 with entry length 1
+22:33:09.627531 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 
+22:33:09.627718 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 
+22:33:09.627815 3 match preindex 19 and term 4
+22:33:09.627926 4 match preindex 19 and term 4
+22:33:09.628913 2 apply entry index is 20
+22:33:09.687407 leader 0 start heartbeat
+22:33:09.835040 leader 2 start heartbeat
+22:33:09.837424 3 recive heartbeat from 2 with entry length 0
+22:33:09.837530 3 match preindex 20 and term 4
+22:33:09.837737 4 match preindex 20 and term 4
+22:33:09.838005 4 apply entry index is 20
+22:33:09.838062 3 apply entry index is 20
+22:33:09.853056 2 use Start in index 21 and term 4
+22:33:09.853507 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:09.898719 leader 0 start heartbeat
+22:33:09.989517 1 election time is 531ms
+22:33:09.990154 1 start election in term 16
+22:33:10.045653 leader 2 start heartbeat
+22:33:10.047527 3 recive heartbeat from 2 with entry length 1
+22:33:10.047603 4 recive heartbeat from 2 with entry length 1
+22:33:10.047743 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.047863 3 match preindex 20 and term 4
+22:33:10.048046 4 match preindex 20 and term 4
+22:33:10.048665 2 apply entry index is 21
+22:33:10.109317 leader 0 start heartbeat
+22:33:10.256659 leader 2 start heartbeat
+22:33:10.258701 4 recive heartbeat from 2 with entry length 0
+22:33:10.258714 3 recive heartbeat from 2 with entry length 0
+22:33:10.258894 4 match preindex 21 and term 4
+22:33:10.258965 3 match preindex 21 and term 4
+22:33:10.259106 4 apply entry index is 21
+22:33:10.259211 3 apply entry index is 21
+22:33:10.268259 2 use Start in index 22 and term 4
+22:33:10.268430 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.320172 leader 0 start heartbeat
+22:33:10.467174 leader 2 start heartbeat
+22:33:10.469612 4 recive heartbeat from 2 with entry length 1
+22:33:10.469916 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.470080 4 match preindex 21 and term 4
+22:33:10.470210 3 recive heartbeat from 2 with entry length 1
+22:33:10.470383 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.470514 3 match preindex 21 and term 4
+22:33:10.471050 2 apply entry index is 22
+22:33:10.528155 1 election time is 592ms
+22:33:10.528800 1 start election in term 17
+22:33:10.530823 leader 0 start heartbeat
+22:33:10.677777 leader 2 start heartbeat
+22:33:10.680489 3 recive heartbeat from 2 with entry length 0
+22:33:10.680502 4 recive heartbeat from 2 with entry length 0
+22:33:10.680780 3 match preindex 22 and term 4
+22:33:10.680846 4 match preindex 22 and term 4
+22:33:10.681000 3 apply entry index is 22
+22:33:10.681075 4 apply entry index is 22
+22:33:10.685094 2 use Start in index 23 and term 4
+22:33:10.685240 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.715295 1 fail in leader election in term 17
+22:33:10.741405 leader 0 start heartbeat
+22:33:10.762472 1 fail in leader election in term 17
+22:33:10.888872 leader 2 start heartbeat
+22:33:10.892784 3 recive heartbeat from 2 with entry length 1
+22:33:10.893311 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.893445 3 match preindex 22 and term 4
+22:33:10.893557 4 recive heartbeat from 2 with entry length 1
+22:33:10.893699 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:10.893794 4 match preindex 22 and term 4
+22:33:10.894326 2 apply entry index is 23
+22:33:10.952609 leader 0 start heartbeat
+22:33:11.100454 leader 2 start heartbeat
+22:33:11.101268 4 recive heartbeat from 2 with entry length 0
+22:33:11.101428 3 recive heartbeat from 2 with entry length 0
+22:33:11.101524 3 match preindex 23 and term 4
+22:33:11.101569 4 match preindex 23 and term 4
+22:33:11.101647 3 apply entry index is 23
+22:33:11.101702 4 apply entry index is 23
+22:33:11.104886 1 fail in leader election in term 17
+22:33:11.120419 2 use Start in index 24 and term 4
+22:33:11.120533 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:11.132233 1 election time is 550ms
+22:33:11.132385 1 start election in term 18
+22:33:11.163043 leader 0 start heartbeat
+22:33:11.311401 leader 2 start heartbeat
+22:33:11.312409 4 recive heartbeat from 2 with entry length 1
+22:33:11.312498 3 recive heartbeat from 2 with entry length 1
+22:33:11.312583 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:11.312637 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:11.312682 4 match preindex 23 and term 4
+22:33:11.312712 3 match preindex 23 and term 4
+22:33:11.313089 2 apply entry index is 24
+22:33:11.373892 leader 0 start heartbeat
+22:33:11.522547 leader 2 start heartbeat
+22:33:11.523763 4 recive heartbeat from 2 with entry length 0
+22:33:11.523883 3 recive heartbeat from 2 with entry length 0
+22:33:11.524018 4 match preindex 24 and term 4
+22:33:11.524122 3 match preindex 24 and term 4
+22:33:11.524255 4 apply entry index is 24
+22:33:11.524337 3 apply entry index is 24
+22:33:11.530823 2 use Start in index 25 and term 4
+22:33:11.531011 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:11.585288 leader 0 start heartbeat
+22:33:11.689360 1 election time is 669ms
+22:33:11.689661 1 start election in term 19
+22:33:11.732870 leader 2 start heartbeat
+22:33:11.733782 4 recive heartbeat from 2 with entry length 1
+22:33:11.733787 3 recive heartbeat from 2 with entry length 1
+22:33:11.733890 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:11.733948 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:11.734032 3 match preindex 24 and term 4
+22:33:11.734099 4 match preindex 24 and term 4
+22:33:11.734507 2 apply entry index is 25
+22:33:11.795659 leader 0 start heartbeat
+22:33:11.870074 1 fail in leader election in term 19
+22:33:11.893590 1 fail in leader election in term 19
+22:33:11.943767 leader 2 start heartbeat
+22:33:11.945931 3 recive heartbeat from 2 with entry length 0
+22:33:11.946116 3 match preindex 25 and term 4
+22:33:11.946383 3 apply entry index is 25
+22:33:11.946560 4 match preindex 25 and term 4
+22:33:11.946836 4 apply entry index is 25
+22:33:11.947979 2 use Start in index 26 and term 4
+22:33:11.948109 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.006512 leader 0 start heartbeat
+22:33:12.154442 leader 2 start heartbeat
+22:33:12.157281 3 recive heartbeat from 2 with entry length 1
+22:33:12.157603 4 recive heartbeat from 2 with entry length 1
+22:33:12.157790 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.158107 4 match preindex 25 and term 4
+22:33:12.158323 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.158433 3 match preindex 25 and term 4
+22:33:12.158992 2 apply entry index is 26
+22:33:12.217652 leader 0 start heartbeat
+22:33:12.360308 1 election time is 708ms
+22:33:12.360509 1 start election in term 20
+22:33:12.365470 leader 2 start heartbeat
+22:33:12.365911 3 recive heartbeat from 2 with entry length 0
+22:33:12.365949 4 recive heartbeat from 2 with entry length 0
+22:33:12.366003 3 match preindex 26 and term 4
+22:33:12.366046 4 match preindex 26 and term 4
+22:33:12.366160 3 apply entry index is 26
+22:33:12.366188 4 apply entry index is 26
+22:33:12.380904 2 use Start in index 27 and term 4
+22:33:12.381062 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.429130 leader 0 start heartbeat
+22:33:12.576918 leader 2 start heartbeat
+22:33:12.578122 3 recive heartbeat from 2 with entry length 1
+22:33:12.578244 4 recive heartbeat from 2 with entry length 1
+22:33:12.578318 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.578372 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.578520 4 match preindex 26 and term 4
+22:33:12.578535 3 match preindex 26 and term 4
+22:33:12.579133 2 apply entry index is 27
+22:33:12.640779 leader 0 start heartbeat
+22:33:12.732733 1 fail in leader election in term 20
+22:33:12.787955 leader 2 start heartbeat
+22:33:12.790394 4 recive heartbeat from 2 with entry length 0
+22:33:12.790401 3 recive heartbeat from 2 with entry length 0
+22:33:12.790507 4 match preindex 27 and term 4
+22:33:12.790550 3 match preindex 27 and term 4
+22:33:12.790718 4 apply entry index is 27
+22:33:12.790855 3 apply entry index is 27
+22:33:12.792465 2 use Start in index 28 and term 4
+22:33:12.792624 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:12.851362 leader 0 start heartbeat
+22:33:12.998710 leader 2 start heartbeat
+22:33:13.000233 3 recive heartbeat from 2 with entry length 1
+22:33:13.000433 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.000567 3 match preindex 27 and term 4
+22:33:13.001204 4 recive heartbeat from 2 with entry length 1
+22:33:13.001341 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.001428 4 match preindex 27 and term 4
+22:33:13.001890 2 apply entry index is 28
+22:33:13.061682 leader 0 start heartbeat
+22:33:13.071388 1 election time is 453ms
+22:33:13.071698 1 start election in term 21
+22:33:13.209287 leader 2 start heartbeat
+22:33:13.211176 3 recive heartbeat from 2 with entry length 0
+22:33:13.211408 3 match preindex 28 and term 4
+22:33:13.211876 3 apply entry index is 28
+22:33:13.212193 4 recive heartbeat from 2 with entry length 0
+22:33:13.212299 4 match preindex 28 and term 4
+22:33:13.212433 4 apply entry index is 28
+22:33:13.225868 2 use Start in index 29 and term 4
+22:33:13.226241 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.271873 leader 0 start heartbeat
+22:33:13.419924 leader 2 start heartbeat
+22:33:13.420952 3 recive heartbeat from 2 with entry length 1
+22:33:13.420963 4 recive heartbeat from 2 with entry length 1
+22:33:13.421125 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.421227 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.421296 3 match preindex 28 and term 4
+22:33:13.421396 4 match preindex 28 and term 4
+22:33:13.421924 2 apply entry index is 29
+22:33:13.482568 leader 0 start heartbeat
+22:33:13.529958 1 election time is 502ms
+22:33:13.530611 1 start election in term 22
+22:33:13.631058 leader 2 start heartbeat
+22:33:13.634139 3 recive heartbeat from 2 with entry length 0
+22:33:13.634375 4 recive heartbeat from 2 with entry length 0
+22:33:13.634489 3 match preindex 29 and term 4
+22:33:13.634560 4 match preindex 29 and term 4
+22:33:13.634681 3 apply entry index is 29
+22:33:13.634785 4 apply entry index is 29
+22:33:13.641215 2 use Start in index 30 and term 4
+22:33:13.641342 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.693702 leader 0 start heartbeat
+22:33:13.841717 leader 2 start heartbeat
+22:33:13.844670 4 recive heartbeat from 2 with entry length 1
+22:33:13.844964 3 recive heartbeat from 2 with entry length 1
+22:33:13.844964 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.845150 4 match preindex 29 and term 4
+22:33:13.845158 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:13.845337 3 match preindex 29 and term 4
+22:33:13.845908 2 apply entry index is 30
+22:33:13.903965 leader 0 start heartbeat
+22:33:14.038036 1 election time is 732ms
+22:33:14.038612 1 start election in term 23
+22:33:14.052114 leader 2 start heartbeat
+22:33:14.055906 4 recive heartbeat from 2 with entry length 0
+22:33:14.056135 4 match preindex 30 and term 4
+22:33:14.056155 3 recive heartbeat from 2 with entry length 0
+22:33:14.056465 3 match preindex 30 and term 4
+22:33:14.057116 3 apply entry index is 30
+22:33:14.057216 4 apply entry index is 30
+22:33:14.058414 2 use Start in index 31 and term 4
+22:33:14.058561 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.114435 leader 0 start heartbeat
+22:33:14.263112 leader 2 start heartbeat
+22:33:14.265765 4 recive heartbeat from 2 with entry length 1
+22:33:14.266069 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.266116 3 recive heartbeat from 2 with entry length 1
+22:33:14.266225 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.266360 3 match preindex 30 and term 4
+22:33:14.266924 2 apply entry index is 31
+22:33:14.325194 leader 0 start heartbeat
+22:33:14.473883 leader 2 start heartbeat
+22:33:14.475810 3 recive heartbeat from 2 with entry length 0
+22:33:14.476060 3 match preindex 31 and term 4
+22:33:14.476750 4 recive heartbeat from 2 with entry length 0
+22:33:14.476948 4 match preindex 31 and term 4
+22:33:14.477338 4 apply entry index is 31
+22:33:14.478028 3 apply entry index is 31
+22:33:14.491882 2 use Start in index 32 and term 4
+22:33:14.492164 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.515086 1 fail in leader election in term 23
+22:33:14.535721 leader 0 start heartbeat
+22:33:14.684440 leader 2 start heartbeat
+22:33:14.687146 4 recive heartbeat from 2 with entry length 1
+22:33:14.687146 3 recive heartbeat from 2 with entry length 1
+22:33:14.687346 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.687428 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.687503 4 match preindex 31 and term 4
+22:33:14.687542 3 match preindex 31 and term 4
+22:33:14.688119 2 apply entry index is 32
+22:33:14.746397 leader 0 start heartbeat
+22:33:14.778663 1 election time is 435ms
+22:33:14.779345 1 start election in term 24
+22:33:14.895449 leader 2 start heartbeat
+22:33:14.897425 4 recive heartbeat from 2 with entry length 0
+22:33:14.897700 4 match preindex 32 and term 4
+22:33:14.898205 4 apply entry index is 32
+22:33:14.898557 3 recive heartbeat from 2 with entry length 0
+22:33:14.898692 3 match preindex 32 and term 4
+22:33:14.898824 3 apply entry index is 32
+22:33:14.906393 2 use Start in index 33 and term 4
+22:33:14.906607 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:14.957396 leader 0 start heartbeat
+22:33:14.960053 1 fail in leader election in term 24
+22:33:15.107717 leader 2 start heartbeat
+22:33:15.110231 4 recive heartbeat from 2 with entry length 1
+22:33:15.110519 3 recive heartbeat from 2 with entry length 1
+22:33:15.110532 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.110771 4 match preindex 32 and term 4
+22:33:15.110778 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.111032 3 match preindex 32 and term 4
+22:33:15.111691 2 apply entry index is 33
+22:33:15.168604 leader 0 start heartbeat
+22:33:15.214900 1 election time is 798ms
+22:33:15.215464 1 start election in term 25
+22:33:15.319285 leader 2 start heartbeat
+22:33:15.321281 3 recive heartbeat from 2 with entry length 0
+22:33:15.321531 3 match preindex 33 and term 4
+22:33:15.321952 3 apply entry index is 33
+22:33:15.322635 4 recive heartbeat from 2 with entry length 0
+22:33:15.322759 4 match preindex 33 and term 4
+22:33:15.322901 4 apply entry index is 33
+22:33:15.340223 2 use Start in index 34 and term 4
+22:33:15.340729 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.379684 leader 0 start heartbeat
+22:33:15.530032 leader 2 start heartbeat
+22:33:15.532749 4 recive heartbeat from 2 with entry length 1
+22:33:15.533083 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.533296 4 match preindex 33 and term 4
+22:33:15.533913 3 recive heartbeat from 2 with entry length 1
+22:33:15.534184 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.534365 3 match preindex 33 and term 4
+22:33:15.535222 2 apply entry index is 34
+22:33:15.590541 leader 0 start heartbeat
+22:33:15.694296 1 fail in leader election in term 25
+22:33:15.740060 leader 2 start heartbeat
+22:33:15.741674 3 recive heartbeat from 2 with entry length 0
+22:33:15.741881 3 match preindex 34 and term 4
+22:33:15.742184 3 apply entry index is 34
+22:33:15.743097 4 recive heartbeat from 2 with entry length 0
+22:33:15.743215 4 match preindex 34 and term 4
+22:33:15.743364 4 apply entry index is 34
+22:33:15.753844 2 use Start in index 35 and term 4
+22:33:15.754103 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.802213 leader 0 start heartbeat
+22:33:15.868359 1 fail in leader election in term 25
+22:33:15.951180 leader 2 start heartbeat
+22:33:15.953439 3 recive heartbeat from 2 with entry length 1
+22:33:15.953602 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.953671 3 match preindex 34 and term 4
+22:33:15.953922 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:15.954035 4 match preindex 34 and term 4
+22:33:15.954532 2 apply entry index is 35
+22:33:16.014195 1 election time is 477ms
+22:33:16.014195 leader 0 start heartbeat
+22:33:16.017350 1 start election in term 26
+22:33:16.133438 1 fail in leader election in term 26
+22:33:16.161718 leader 2 start heartbeat
+22:33:16.163402 4 recive heartbeat from 2 with entry length 0
+22:33:16.163644 4 match preindex 35 and term 4
+22:33:16.164061 4 apply entry index is 35
+22:33:16.164308 3 recive heartbeat from 2 with entry length 0
+22:33:16.164429 3 match preindex 35 and term 4
+22:33:16.164684 3 apply entry index is 35
+22:33:16.169758 2 use Start in index 36 and term 4
+22:33:16.169954 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:16.224434 leader 0 start heartbeat
+22:33:16.372475 leader 2 start heartbeat
+22:33:16.375544 3 recive heartbeat from 2 with entry length 1
+22:33:16.375551 4 recive heartbeat from 2 with entry length 1
+22:33:16.375848 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:16.375905 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:16.376006 3 match preindex 35 and term 4
+22:33:16.376083 4 match preindex 35 and term 4
+22:33:16.376604 2 apply entry index is 36
+22:33:16.434543 leader 0 start heartbeat
+22:33:16.504234 1 election time is 415ms
+22:33:16.504831 1 start election in term 27
+22:33:16.583264 leader 2 start heartbeat
+22:33:16.586429 4 recive heartbeat from 2 with entry length 0
+22:33:16.586459 3 recive heartbeat from 2 with entry length 0
+22:33:16.586679 4 match preindex 36 and term 4
+22:33:16.586804 3 match preindex 36 and term 4
+22:33:16.586988 4 apply entry index is 36
+22:33:16.586998 3 apply entry index is 36
+22:33:16.588099 1 fail in leader election in term 27
+22:33:16.607085 2 use Start in index 37 and term 4
+22:33:16.607687 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:16.645359 leader 0 start heartbeat
+22:33:16.794371 leader 2 start heartbeat
+22:33:16.797188 3 recive heartbeat from 2 with entry length 1
+22:33:16.797439 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:16.797560 3 match preindex 36 and term 4
+22:33:16.797694 4 recive heartbeat from 2 with entry length 1
+22:33:16.797880 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:16.798016 4 match preindex 36 and term 4
+22:33:16.798678 2 apply entry index is 37
+22:33:16.856540 leader 0 start heartbeat
+22:33:16.922987 1 election time is 528ms
+22:33:16.923781 1 start election in term 28
+22:33:17.005700 leader 2 start heartbeat
+22:33:17.007902 4 recive heartbeat from 2 with entry length 0
+22:33:17.008141 4 match preindex 37 and term 4
+22:33:17.008373 4 apply entry index is 37
+22:33:17.008663 3 recive heartbeat from 2 with entry length 0
+22:33:17.008808 3 match preindex 37 and term 4
+22:33:17.008977 3 apply entry index is 37
+22:33:17.020140 2 use Start in index 38 and term 4
+22:33:17.020505 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.068103 leader 0 start heartbeat
+22:33:17.217384 leader 2 start heartbeat
+22:33:17.218548 3 recive heartbeat from 2 with entry length 1
+22:33:17.218673 4 recive heartbeat from 2 with entry length 1
+22:33:17.218814 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.218925 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.218985 3 match preindex 37 and term 4
+22:33:17.219100 4 match preindex 37 and term 4
+22:33:17.219602 2 apply entry index is 38
+22:33:17.280451 leader 0 start heartbeat
+22:33:17.427504 leader 2 start heartbeat
+22:33:17.428138 3 recive heartbeat from 2 with entry length 0
+22:33:17.428228 3 match preindex 38 and term 4
+22:33:17.428313 3 apply entry index is 38
+22:33:17.428384 4 match preindex 38 and term 4
+22:33:17.428464 4 apply entry index is 38
+22:33:17.435244 2 use Start in index 39 and term 4
+22:33:17.435351 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.457776 1 election time is 494ms
+22:33:17.457917 1 start election in term 29
+22:33:17.490514 leader 0 start heartbeat
+22:33:17.518831 1 fail in leader election in term 29
+22:33:17.638653 leader 2 start heartbeat
+22:33:17.639837 4 recive heartbeat from 2 with entry length 1
+22:33:17.639848 3 recive heartbeat from 2 with entry length 1
+22:33:17.640070 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.640160 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.640230 4 match preindex 38 and term 4
+22:33:17.640299 3 match preindex 38 and term 4
+22:33:17.640863 2 apply entry index is 39
+22:33:17.702367 leader 0 start heartbeat
+22:33:17.849513 leader 2 start heartbeat
+22:33:17.853145 4 recive heartbeat from 2 with entry length 0
+22:33:17.853150 3 recive heartbeat from 2 with entry length 0
+22:33:17.853314 4 match preindex 39 and term 4
+22:33:17.853370 3 match preindex 39 and term 4
+22:33:17.853529 4 apply entry index is 39
+22:33:17.853739 3 apply entry index is 39
+22:33:17.869071 2 use Start in index 40 and term 4
+22:33:17.869414 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:17.913039 leader 0 start heartbeat
+22:33:17.955076 1 election time is 500ms
+22:33:17.955316 1 start election in term 30
+22:33:18.060694 leader 2 start heartbeat
+22:33:18.061975 3 recive heartbeat from 2 with entry length 1
+22:33:18.062188 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.062261 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.062313 3 match preindex 39 and term 4
+22:33:18.062389 4 match preindex 39 and term 4
+22:33:18.062987 2 apply entry index is 40
+22:33:18.124409 leader 0 start heartbeat
+22:33:18.272880 leader 2 start heartbeat
+22:33:18.275638 4 recive heartbeat from 2 with entry length 0
+22:33:18.275639 3 recive heartbeat from 2 with entry length 0
+22:33:18.275803 4 match preindex 40 and term 4
+22:33:18.275917 3 match preindex 40 and term 4
+22:33:18.276025 4 apply entry index is 40
+22:33:18.276163 3 apply entry index is 40
+22:33:18.282522 2 use Start in index 41 and term 4
+22:33:18.282747 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.335752 leader 0 start heartbeat
+22:33:18.461723 1 election time is 638ms
+22:33:18.462324 1 start election in term 31
+22:33:18.483146 leader 2 start heartbeat
+22:33:18.484954 3 recive heartbeat from 2 with entry length 1
+22:33:18.485164 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.485293 3 match preindex 40 and term 4
+22:33:18.486062 4 recive heartbeat from 2 with entry length 1
+22:33:18.486258 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.486399 4 match preindex 40 and term 4
+22:33:18.486928 2 apply entry index is 41
+22:33:18.546302 leader 0 start heartbeat
+22:33:18.693481 leader 2 start heartbeat
+22:33:18.696579 4 recive heartbeat from 2 with entry length 0
+22:33:18.696742 3 recive heartbeat from 2 with entry length 0
+22:33:18.696863 4 match preindex 41 and term 4
+22:33:18.697074 3 match preindex 41 and term 4
+22:33:18.697125 4 apply entry index is 41
+22:33:18.697248 3 apply entry index is 41
+22:33:18.700441 2 use Start in index 42 and term 4
+22:33:18.700638 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.756644 leader 0 start heartbeat
+22:33:18.855915 1 fail in leader election in term 31
+22:33:18.903862 leader 2 start heartbeat
+22:33:18.907277 4 recive heartbeat from 2 with entry length 1
+22:33:18.907352 3 recive heartbeat from 2 with entry length 1
+22:33:18.907483 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.907616 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:18.907626 4 match preindex 41 and term 4
+22:33:18.907784 3 match preindex 41 and term 4
+22:33:18.908380 2 apply entry index is 42
+22:33:18.967289 leader 0 start heartbeat
+22:33:19.103547 1 election time is 748ms
+22:33:19.103879 1 start election in term 32
+22:33:19.114135 leader 2 start heartbeat
+22:33:19.115093 4 recive heartbeat from 2 with entry length 0
+22:33:19.115266 4 match preindex 42 and term 4
+22:33:19.115277 3 match preindex 42 and term 4
+22:33:19.115415 4 apply entry index is 42
+22:33:19.115523 3 apply entry index is 42
+22:33:19.133817 2 use Start in index 43 and term 4
+22:33:19.134339 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:19.177995 leader 0 start heartbeat
+22:33:19.325220 leader 2 start heartbeat
+22:33:19.327742 3 recive heartbeat from 2 with entry length 1
+22:33:19.327743 4 recive heartbeat from 2 with entry length 1
+22:33:19.327936 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:19.328008 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:19.328075 3 match preindex 42 and term 4
+22:33:19.328109 4 match preindex 42 and term 4
+22:33:19.328617 2 apply entry index is 43
+22:33:19.388465 leader 0 start heartbeat
+22:33:19.535803 leader 2 start heartbeat
+22:33:19.539221 3 recive heartbeat from 2 with entry length 0
+22:33:19.539490 3 match preindex 43 and term 4
+22:33:19.539683 3 apply entry index is 43
+22:33:19.540416 4 recive heartbeat from 2 with entry length 0
+22:33:19.540569 4 match preindex 43 and term 4
+22:33:19.540734 4 apply entry index is 43
+22:33:19.550636 2 use Start in index 44 and term 4
+22:33:19.550948 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:19.598797 leader 0 start heartbeat
+22:33:19.642132 1 fail in leader election in term 32
+22:33:19.747104 leader 2 start heartbeat
+22:33:19.749356 4 recive heartbeat from 2 with entry length 1
+22:33:19.749631 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:19.749768 4 match preindex 43 and term 4
+22:33:19.750364 3 recive heartbeat from 2 with entry length 1
+22:33:19.750546 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:19.750652 3 match preindex 43 and term 4
+22:33:19.751182 2 apply entry index is 44
+22:33:19.810419 leader 0 start heartbeat
+22:33:19.813117 1 fail in leader election in term 32
+22:33:19.862963 1 election time is 662ms
+22:33:19.863586 1 start election in term 33
+22:33:19.957817 leader 2 start heartbeat
+22:33:19.961746 3 recive heartbeat from 2 with entry length 0
+22:33:19.961748 4 recive heartbeat from 2 with entry length 0
+22:33:19.962065 3 match preindex 44 and term 4
+22:33:19.962106 4 match preindex 44 and term 4
+22:33:19.962176 1 fail in leader election in term 33
+22:33:19.962264 3 apply entry index is 44
+22:33:19.962313 4 apply entry index is 44
+22:33:19.981016 2 use Start in index 45 and term 4
+22:33:19.981181 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.021786 leader 0 start heartbeat
+22:33:20.168181 leader 2 start heartbeat
+22:33:20.170533 4 recive heartbeat from 2 with entry length 1
+22:33:20.170961 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.171170 4 match preindex 44 and term 4
+22:33:20.171965 3 recive heartbeat from 2 with entry length 1
+22:33:20.172272 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.172386 3 match preindex 44 and term 4
+22:33:20.172909 2 apply entry index is 45
+22:33:20.232896 leader 0 start heartbeat
+22:33:20.378408 leader 2 start heartbeat
+22:33:20.380589 4 recive heartbeat from 2 with entry length 0
+22:33:20.380849 4 match preindex 45 and term 4
+22:33:20.381056 4 apply entry index is 45
+22:33:20.381449 3 recive heartbeat from 2 with entry length 0
+22:33:20.381569 3 match preindex 45 and term 4
+22:33:20.381726 3 apply entry index is 45
+22:33:20.397099 2 use Start in index 46 and term 4
+22:33:20.397783 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.443556 leader 0 start heartbeat
+22:33:20.536315 1 election time is 518ms
+22:33:20.536965 1 start election in term 34
+22:33:20.588747 leader 2 start heartbeat
+22:33:20.591504 3 recive heartbeat from 2 with entry length 1
+22:33:20.591507 4 recive heartbeat from 2 with entry length 1
+22:33:20.591807 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.591908 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.591918 3 match preindex 45 and term 4
+22:33:20.591988 4 match preindex 45 and term 4
+22:33:20.592669 2 apply entry index is 46
+22:33:20.654440 leader 0 start heartbeat
+22:33:20.800228 leader 2 start heartbeat
+22:33:20.803860 3 recive heartbeat from 2 with entry length 0
+22:33:20.804093 4 recive heartbeat from 2 with entry length 0
+22:33:20.804188 3 match preindex 46 and term 4
+22:33:20.804262 4 match preindex 46 and term 4
+22:33:20.804346 3 apply entry index is 46
+22:33:20.804461 4 apply entry index is 46
+22:33:20.810642 2 use Start in index 47 and term 4
+22:33:20.810742 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:20.866610 leader 0 start heartbeat
+22:33:21.011581 leader 2 start heartbeat
+22:33:21.014029 4 recive heartbeat from 2 with entry length 1
+22:33:21.014174 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.014270 4 match preindex 46 and term 4
+22:33:21.014316 3 recive heartbeat from 2 with entry length 1
+22:33:21.014448 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.014547 3 match preindex 46 and term 4
+22:33:21.015074 2 apply entry index is 47
+22:33:21.058314 1 election time is 543ms
+22:33:21.059355 1 start election in term 35
+22:33:21.077804 leader 0 start heartbeat
+22:33:21.222536 leader 2 start heartbeat
+22:33:21.224697 3 recive heartbeat from 2 with entry length 0
+22:33:21.225063 3 match preindex 47 and term 4
+22:33:21.225434 3 apply entry index is 47
+22:33:21.225815 4 recive heartbeat from 2 with entry length 0
+22:33:21.225932 4 match preindex 47 and term 4
+22:33:21.226093 4 apply entry index is 47
+22:33:21.243174 2 use Start in index 48 and term 4
+22:33:21.244078 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.288329 leader 0 start heartbeat
+22:33:21.433673 leader 2 start heartbeat
+22:33:21.434737 4 recive heartbeat from 2 with entry length 1
+22:33:21.434799 3 recive heartbeat from 2 with entry length 1
+22:33:21.434901 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.435003 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.435084 4 match preindex 47 and term 4
+22:33:21.435143 3 match preindex 47 and term 4
+22:33:21.435705 2 apply entry index is 48
+22:33:21.500340 leader 0 start heartbeat
+22:33:21.550966 1 fail in leader election in term 35
+22:33:21.605354 1 election time is 694ms
+22:33:21.605970 1 start election in term 36
+22:33:21.645019 leader 2 start heartbeat
+22:33:21.648126 3 recive heartbeat from 2 with entry length 0
+22:33:21.648224 3 match preindex 48 and term 4
+22:33:21.648269 4 match preindex 48 and term 4
+22:33:21.648402 3 apply entry index is 48
+22:33:21.648511 4 apply entry index is 48
+22:33:21.655890 2 use Start in index 49 and term 4
+22:33:21.656344 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.710633 leader 0 start heartbeat
+22:33:21.785773 1 fail in leader election in term 36
+22:33:21.856824 leader 2 start heartbeat
+22:33:21.859775 4 recive heartbeat from 2 with entry length 1
+22:33:21.860180 3 recive heartbeat from 2 with entry length 1
+22:33:21.860232 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.860328 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:21.860587 3 match preindex 48 and term 4
+22:33:21.861266 2 apply entry index is 49
+22:33:21.920764 leader 0 start heartbeat
+22:33:22.067221 leader 2 start heartbeat
+22:33:22.069895 3 recive heartbeat from 2 with entry length 0
+22:33:22.069900 4 recive heartbeat from 2 with entry length 0
+22:33:22.070216 3 match preindex 49 and term 4
+22:33:22.070230 4 match preindex 49 and term 4
+22:33:22.070474 3 apply entry index is 49
+22:33:22.070610 4 apply entry index is 49
+22:33:22.072522 2 use Start in index 50 and term 4
+22:33:22.072691 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:22.131569 leader 0 start heartbeat
+22:33:22.278344 leader 2 start heartbeat
+22:33:22.281765 3 recive heartbeat from 2 with entry length 1
+22:33:22.281936 4 recive heartbeat from 2 with entry length 1
+22:33:22.282042 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:22.282124 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:22.282185 3 match preindex 49 and term 4
+22:33:22.282190 4 match preindex 49 and term 4
+22:33:22.282691 2 apply entry index is 50
+22:33:22.301400 1 election time is 574ms
+22:33:22.301517 1 start election in term 37
+22:33:22.343048 leader 0 start heartbeat
+22:33:22.489092 leader 2 start heartbeat
+22:33:22.489823 3 recive heartbeat from 2 with entry length 0
+22:33:22.489949 3 match preindex 50 and term 4
+22:33:22.489953 4 recive heartbeat from 2 with entry length 0
+22:33:22.490122 3 apply entry index is 50
+22:33:22.490177 4 match preindex 50 and term 4
+22:33:22.490290 4 apply entry index is 50
+22:33:22.504465 2 use Start in index 51 and term 4
+22:33:22.504615 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:22.555448 leader 0 start heartbeat
+22:33:22.700630 leader 2 start heartbeat
+22:33:22.701908 3 recive heartbeat from 2 with entry length 1
+22:33:22.702057 4 recive heartbeat from 2 with entry length 1
+22:33:22.702119 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:22.702377 3 match preindex 50 and term 4
+22:33:22.702389 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:22.702573 4 match preindex 50 and term 4
+22:33:22.703110 2 apply entry index is 51
+22:33:22.741196 1 fail in leader election in term 37
+22:33:22.768967 leader 0 start heartbeat
+22:33:22.829288 1 fail in leader election in term 37
+22:33:22.878573 1 election time is 585ms
+22:33:22.879222 1 start election in term 38
+22:33:22.911739 leader 2 start heartbeat
+22:33:22.919072 4 recive heartbeat from 2 with entry length 0
+22:33:22.919405 4 match preindex 51 and term 4
+22:33:22.919506 3 recive heartbeat from 2 with entry length 0
+22:33:22.919629 4 apply entry index is 51
+22:33:22.919719 3 match preindex 51 and term 4
+22:33:22.919942 3 apply entry index is 51
+22:33:22.979827 leader 0 start heartbeat
+22:33:23.121788 leader 2 start heartbeat
+22:33:23.124960 4 recive heartbeat from 2 with entry length 0
+22:33:23.125194 4 match preindex 51 and term 4
+22:33:23.125572 3 recive heartbeat from 2 with entry length 0
+22:33:23.125623 3 match preindex 51 and term 4
+22:33:23.178061 1 fail in leader election in term 38
+22:33:23.201316 leader 0 start heartbeat
+22:33:23.333950 leader 2 start heartbeat
+22:33:23.334579 3 recive heartbeat from 2 with entry length 0
+22:33:23.334712 4 recive heartbeat from 2 with entry length 0
+22:33:23.334764 3 match preindex 51 and term 4
+22:33:23.334953 4 match preindex 51 and term 4
+22:33:23.412675 leader 0 start heartbeat
+22:33:23.468221 2 use Start in index 52 and term 4
+22:33:23.468247 1 election time is 426ms
+22:33:23.468577 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.469043 1 start election in term 39
+22:33:23.469155 2 use Start in index 53 and term 4
+22:33:23.469391 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.469572 2 use Start in index 54 and term 4
+22:33:23.469781 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.469971 2 use Start in index 55 and term 4
+22:33:23.470104 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.470208 2 use Start in index 56 and term 4
+22:33:23.470325 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.470443 2 use Start in index 57 and term 4
+22:33:23.470561 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.470656 2 use Start in index 58 and term 4
+22:33:23.470770 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.470865 2 use Start in index 59 and term 4
+22:33:23.471004 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.471106 2 use Start in index 60 and term 4
+22:33:23.471229 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.471323 2 use Start in index 61 and term 4
+22:33:23.471453 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.471549 2 use Start in index 62 and term 4
+22:33:23.471669 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.471767 2 use Start in index 63 and term 4
+22:33:23.471910 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472020 2 use Start in index 64 and term 4
+22:33:23.472089 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472200 2 use Start in index 65 and term 4
+22:33:23.472263 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472306 2 use Start in index 66 and term 4
+22:33:23.472365 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472407 2 use Start in index 67 and term 4
+22:33:23.472470 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472511 2 use Start in index 68 and term 4
+22:33:23.472569 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472610 2 use Start in index 69 and term 4
+22:33:23.472669 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472708 2 use Start in index 70 and term 4
+22:33:23.472762 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472803 2 use Start in index 71 and term 4
+22:33:23.472860 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472899 2 use Start in index 72 and term 4
+22:33:23.472955 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.472994 2 use Start in index 73 and term 4
+22:33:23.473049 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473087 2 use Start in index 74 and term 4
+22:33:23.473145 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473184 2 use Start in index 75 and term 4
+22:33:23.473241 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473279 2 use Start in index 76 and term 4
+22:33:23.473345 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473384 2 use Start in index 77 and term 4
+22:33:23.473440 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473478 2 use Start in index 78 and term 4
+22:33:23.473534 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473573 2 use Start in index 79 and term 4
+22:33:23.473629 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473667 2 use Start in index 80 and term 4
+22:33:23.473723 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473762 2 use Start in index 81 and term 4
+22:33:23.473835 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.473873 2 use Start in index 82 and term 4
+22:33:23.473963 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474013 2 use Start in index 83 and term 4
+22:33:23.474073 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474114 2 use Start in index 84 and term 4
+22:33:23.474172 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474211 2 use Start in index 85 and term 4
+22:33:23.474271 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474308 2 use Start in index 86 and term 4
+22:33:23.474363 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474403 2 use Start in index 87 and term 4
+22:33:23.474458 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474494 2 use Start in index 88 and term 4
+22:33:23.474554 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474589 2 use Start in index 89 and term 4
+22:33:23.474643 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474681 2 use Start in index 90 and term 4
+22:33:23.474739 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474775 2 use Start in index 91 and term 4
+22:33:23.474830 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474866 2 use Start in index 92 and term 4
+22:33:23.474921 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.474956 2 use Start in index 93 and term 4
+22:33:23.475009 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475045 2 use Start in index 94 and term 4
+22:33:23.475104 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475140 2 use Start in index 95 and term 4
+22:33:23.475195 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475231 2 use Start in index 96 and term 4
+22:33:23.475285 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475319 2 use Start in index 97 and term 4
+22:33:23.475381 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475417 2 use Start in index 98 and term 4
+22:33:23.475473 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475511 2 use Start in index 99 and term 4
+22:33:23.475573 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475609 2 use Start in index 100 and term 4
+22:33:23.475674 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.475709 2 use Start in index 101 and term 4
+22:33:23.475767 2 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.544468 leader 2 start heartbeat
+22:33:23.549786 4 recive heartbeat from 2 with entry length 50
+22:33:23.549922 4 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+22:33:23.549980 4 match preindex 51 and term 4
+22:33:23.599968 1 fail in leader election in term 39
+22:33:23.622936 leader 0 start heartbeat
+22:33:23.738868 1 fail in leader election in term 39
+22:33:23.744130 1 fail in leader election in term 39
+22:33:23.756306 leader 2 start heartbeat
+22:33:23.756780 4 recive heartbeat from 2 with entry length 0
+22:33:23.756874 4 match preindex 101 and term 4
+22:33:23.833477 leader 0 start heartbeat
+22:33:23.851107 1 fail in leader election in term 39
+22:33:23.898731 1 election time is 515ms
+22:33:23.898893 1 start election in term 40
+22:33:23.967714 leader 2 start heartbeat
+22:33:23.968706 4 recive heartbeat from 2 with entry length 0
+22:33:23.968768 4 match preindex 101 and term 4
+22:33:23.976099 0 use Start in index 52 and term 1
+22:33:23.976292 0 log is: 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+22:33:23.996965 3 election time is 471ms
+22:33:23.997120 3 start election in term 5
+22:33:23.997454 0 is recive big term so become fellower
+22:33:23.997517 1 term 5 is smaller than my term 40
+22:33:23.997580 0 vote for 3 in term 5
+22:33:23.997747 fail in 1 reply bacause term 40 bigger than me
+22:33:24.178454 leader 2 start heartbeat
+22:33:24.388982 leader 2 start heartbeat
+22:33:24.420265 1 election time is 610ms
+22:33:24.420873 1 start election in term 41
+22:33:24.473606 3 election time is 464ms
+22:33:24.474031 3 start election in term 42
+22:33:24.475272 0 vote for 3 in term 42
+22:33:24.476219 1 is recive big term so become fellower
+22:33:24.476413 1 vote for 3 in term 42
+22:33:24.476863 3 become new leader in term 42
+22:33:24.477101 leader 3 start heartbeat
+22:33:24.478185 1 recive heartbeat from 3 with entry length 0
+22:33:24.478285 0 recive heartbeat from 3 with entry length 0
+22:33:24.478456 1 don't match preindex 51 and term 4
+22:33:24.478531 0 don't match preindex 51 and term 4
+22:33:24.599307 leader 2 start heartbeat
+22:33:24.684634 leader 3 start heartbeat
+22:33:24.688117 1 recive heartbeat from 3 with entry length 1
+22:33:24.688122 0 recive heartbeat from 3 with entry length 1
+22:33:24.688511 1 don't match preindex 50 and term 4
+22:33:24.688524 0 don't match preindex 50 and term 4
+22:33:24.712558 1 fail in leader election in term 42
+22:33:24.729857 1 fail in leader election in term 42
+22:33:24.756590 4 election time is 492ms
+22:33:24.757114 4 start election in term 5
+22:33:24.809537 leader 2 start heartbeat
+22:33:24.894708 leader 3 start heartbeat
+22:33:24.895706 1 recive heartbeat from 3 with entry length 2
+22:33:24.895825 1 don't match preindex 49 and term 4
+22:33:24.895966 0 recive heartbeat from 3 with entry length 2
+22:33:24.896201 0 don't match preindex 49 and term 4
+22:33:25.021299 leader 2 start heartbeat
+22:33:25.105746 leader 3 start heartbeat
+22:33:25.108167 0 recive heartbeat from 3 with entry length 3
+22:33:25.108430 1 recive heartbeat from 3 with entry length 3
+22:33:25.108782 1 don't match preindex 48 and term 4
+22:33:25.109673 0 don't match preindex 48 and term 4
+22:33:25.232697 leader 2 start heartbeat
+22:33:25.258186 4 election time is 526ms
+22:33:25.264022 4 start election in term 6
+22:33:25.316016 leader 3 start heartbeat
+22:33:25.319097 1 recive heartbeat from 3 with entry length 4
+22:33:25.319278 1 don't match preindex 47 and term 4
+22:33:25.319335 0 don't match preindex 47 and term 4
+22:33:25.443665 leader 2 start heartbeat
+22:33:25.526903 leader 3 start heartbeat
+22:33:25.529382 1 recive heartbeat from 3 with entry length 5
+22:33:25.529541 0 recive heartbeat from 3 with entry length 5
+22:33:25.529688 1 don't match preindex 46 and term 4
+22:33:25.529697 0 don't match preindex 46 and term 4
+22:33:25.654052 leader 2 start heartbeat
+22:33:25.737506 leader 3 start heartbeat
+22:33:25.740076 0 recive heartbeat from 3 with entry length 6
+22:33:25.740270 0 don't match preindex 45 and term 4
+22:33:25.740533 1 don't match preindex 45 and term 4
+22:33:25.791498 4 election time is 796ms
+22:33:25.791674 4 start election in term 7
+22:33:25.827516 1 fail in leader election in term 42
+22:33:25.864936 leader 2 start heartbeat
+22:33:25.948773 leader 3 start heartbeat
+22:33:25.949413 0 recive heartbeat from 3 with entry length 7
+22:33:25.949491 0 don't match preindex 44 and term 4
+22:33:25.949527 1 recive heartbeat from 3 with entry length 7
+22:33:25.949630 1 don't match preindex 44 and term 4
+22:33:25.980232 3 use Start in index 52 and term 42
+22:33:25.980338 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 42 
+22:33:26.076133 leader 2 start heartbeat
+22:33:26.160051 leader 3 start heartbeat
+22:33:26.161336 0 recive heartbeat from 3 with entry length 9
+22:33:26.161446 0 don't match preindex 43 and term 4
+22:33:26.161489 1 don't match preindex 43 and term 4
+22:33:26.286828 leader 2 start heartbeat
+22:33:26.370471 leader 3 start heartbeat
+22:33:26.373101 0 recive heartbeat from 3 with entry length 10
+22:33:26.373312 1 recive heartbeat from 3 with entry length 10
+22:33:26.373329 0 don't match preindex 42 and term 4
+22:33:26.373460 1 don't match preindex 42 and term 4
+22:33:26.497438 leader 2 start heartbeat
+22:33:26.581570 leader 3 start heartbeat
+22:33:26.587412 0 recive heartbeat from 3 with entry length 11
+22:33:26.587960 1 recive heartbeat from 3 with entry length 11
+22:33:26.588079 0 don't match preindex 41 and term 4
+22:33:26.588160 1 don't match preindex 41 and term 4
+22:33:26.589876 4 election time is 588ms
+22:33:26.590045 4 start election in term 8
+22:33:26.708354 leader 2 start heartbeat
+22:33:26.734331 1 fail in leader election in term 42
+22:33:26.792348 leader 3 start heartbeat
+22:33:26.793173 1 recive heartbeat from 3 with entry length 12
+22:33:26.793261 0 recive heartbeat from 3 with entry length 12
+22:33:26.793309 1 don't match preindex 40 and term 4
+22:33:26.793367 0 don't match preindex 40 and term 4
+22:33:26.919112 leader 2 start heartbeat
+22:33:27.003598 leader 3 start heartbeat
+22:33:27.006148 0 recive heartbeat from 3 with entry length 13
+22:33:27.006227 1 recive heartbeat from 3 with entry length 13
+22:33:27.006275 0 don't match preindex 39 and term 4
+22:33:27.006316 1 don't match preindex 39 and term 4
+22:33:27.110137 1 fail in leader election in term 42
+22:33:27.129568 leader 2 start heartbeat
+22:33:27.185268 4 election time is 729ms
+22:33:27.185845 4 start election in term 9
+22:33:27.215581 leader 3 start heartbeat
+22:33:27.219514 0 recive heartbeat from 3 with entry length 14
+22:33:27.219826 0 don't match preindex 38 and term 4
+22:33:27.219853 1 don't match preindex 38 and term 4
+22:33:27.340673 leader 2 start heartbeat
+22:33:27.424998 leader 3 start heartbeat
+22:33:27.427194 0 recive heartbeat from 3 with entry length 15
+22:33:27.427348 0 don't match preindex 37 and term 4
+22:33:27.427494 1 recive heartbeat from 3 with entry length 15
+22:33:27.428395 1 don't match preindex 37 and term 4
+22:33:27.442210 1 fail in leader election in term 42
+22:33:27.494491 1 fail in leader election in term 42
+22:33:27.551883 leader 2 start heartbeat
+22:33:27.635908 leader 3 start heartbeat
+22:33:27.637287 1 recive heartbeat from 3 with entry length 16
+22:33:27.637446 1 don't match preindex 36 and term 4
+22:33:27.637519 0 don't match preindex 36 and term 4
+22:33:27.763285 leader 2 start heartbeat
+22:33:27.822788 4 fail in leader election in term 9
+22:33:27.847634 leader 3 start heartbeat
+22:33:27.849932 0 recive heartbeat from 3 with entry length 17
+22:33:27.850140 1 recive heartbeat from 3 with entry length 17
+22:33:27.850248 0 don't match preindex 35 and term 4
+22:33:27.850260 1 don't match preindex 35 and term 4
+22:33:27.923132 4 election time is 535ms
+22:33:27.923407 4 start election in term 10
+22:33:27.974575 leader 2 start heartbeat
+22:33:27.986499 3 use Start in index 53 and term 42
+22:33:27.986765 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 42 42 
+22:33:28.059242 leader 3 start heartbeat
+22:33:28.061059 0 recive heartbeat from 3 with entry length 19
+22:33:28.061065 1 recive heartbeat from 3 with entry length 19
+22:33:28.061292 0 don't match preindex 34 and term 4
+22:33:28.061374 1 don't match preindex 34 and term 4
+22:33:28.186215 leader 2 start heartbeat
+22:33:28.270683 leader 3 start heartbeat
+22:33:28.274418 0 recive heartbeat from 3 with entry length 20
+22:33:28.274583 1 recive heartbeat from 3 with entry length 20
+22:33:28.274672 0 don't match preindex 33 and term 4
+22:33:28.274725 1 don't match preindex 33 and term 4
+22:33:28.397262 leader 2 start heartbeat
+22:33:28.460218 4 election time is 667ms
+22:33:28.460782 4 start election in term 11
+22:33:28.481562 leader 3 start heartbeat
+22:33:28.484641 0 recive heartbeat from 3 with entry length 21
+22:33:28.484963 0 don't match preindex 32 and term 4
+22:33:28.485981 1 recive heartbeat from 3 with entry length 21
+22:33:28.486209 1 don't match preindex 32 and term 4
+22:33:28.608557 leader 2 start heartbeat
+22:33:28.672946 1 fail in leader election in term 42
+22:33:28.692504 leader 3 start heartbeat
+22:33:28.694941 0 recive heartbeat from 3 with entry length 22
+22:33:28.695137 0 don't match preindex 31 and term 4
+22:33:28.695143 1 recive heartbeat from 3 with entry length 22
+22:33:28.695317 1 don't match preindex 31 and term 4
+22:33:28.819826 leader 2 start heartbeat
+22:33:28.903700 leader 3 start heartbeat
+22:33:28.906410 0 recive heartbeat from 3 with entry length 23
+22:33:28.906419 1 recive heartbeat from 3 with entry length 23
+22:33:28.906637 0 don't match preindex 30 and term 4
+22:33:28.906687 1 don't match preindex 30 and term 4
+22:33:29.031556 leader 2 start heartbeat
+22:33:29.115692 leader 3 start heartbeat
+22:33:29.119247 1 recive heartbeat from 3 with entry length 24
+22:33:29.119443 1 don't match preindex 29 and term 4
+22:33:29.119559 0 recive heartbeat from 3 with entry length 24
+22:33:29.119702 0 don't match preindex 29 and term 4
+22:33:29.138055 4 election time is 694ms
+22:33:29.138646 4 start election in term 12
+22:33:29.243196 leader 2 start heartbeat
+22:33:29.326199 leader 3 start heartbeat
+22:33:29.329520 1 recive heartbeat from 3 with entry length 25
+22:33:29.329823 1 don't match preindex 28 and term 4
+22:33:29.330091 0 recive heartbeat from 3 with entry length 25
+22:33:29.330240 0 don't match preindex 28 and term 4
+22:33:29.453569 leader 2 start heartbeat
+22:33:29.536973 leader 3 start heartbeat
+22:33:29.540153 1 recive heartbeat from 3 with entry length 26
+22:33:29.540420 1 don't match preindex 27 and term 4
+22:33:29.540883 0 recive heartbeat from 3 with entry length 26
+22:33:29.541183 0 don't match preindex 27 and term 4
+22:33:29.663931 leader 2 start heartbeat
+22:33:29.747225 leader 3 start heartbeat
+22:33:29.750729 1 recive heartbeat from 3 with entry length 27
+22:33:29.751202 1 don't match preindex 26 and term 4
+22:33:29.751376 0 recive heartbeat from 3 with entry length 27
+22:33:29.751512 0 don't match preindex 26 and term 4
+22:33:29.833236 4 election time is 711ms
+22:33:29.833929 4 start election in term 13
+22:33:29.875132 leader 2 start heartbeat
+22:33:29.958108 leader 3 start heartbeat
+22:33:29.961584 1 recive heartbeat from 3 with entry length 28
+22:33:29.961614 0 recive heartbeat from 3 with entry length 28
+22:33:29.961829 1 don't match preindex 25 and term 4
+22:33:29.961885 0 don't match preindex 25 and term 4
+22:33:29.999681 3 use Start in index 54 and term 42
+22:33:30.000399 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 42 42 42 
+22:33:30.012069 4 fail in leader election in term 13
+22:33:30.086173 leader 2 start heartbeat
+22:33:30.169990 leader 3 start heartbeat
+22:33:30.173610 0 recive heartbeat from 3 with entry length 30
+22:33:30.173835 0 don't match preindex 24 and term 4
+22:33:30.173948 1 don't match preindex 24 and term 4
+22:33:30.297956 leader 2 start heartbeat
+22:33:30.381159 leader 3 start heartbeat
+22:33:30.385113 0 recive heartbeat from 3 with entry length 31
+22:33:30.385245 0 don't match preindex 23 and term 4
+22:33:30.385316 1 recive heartbeat from 3 with entry length 31
+22:33:30.385429 1 don't match preindex 23 and term 4
+22:33:30.509489 leader 2 start heartbeat
+22:33:30.545904 4 election time is 567ms
+22:33:30.546503 4 start election in term 14
+22:33:30.592550 leader 3 start heartbeat
+22:33:30.596004 1 recive heartbeat from 3 with entry length 32
+22:33:30.596215 1 don't match preindex 22 and term 4
+22:33:30.596461 0 recive heartbeat from 3 with entry length 32
+22:33:30.596646 0 don't match preindex 22 and term 4
+22:33:30.719854 leader 2 start heartbeat
+22:33:30.745686 1 fail in leader election in term 42
+22:33:30.803418 leader 3 start heartbeat
+22:33:30.807004 1 recive heartbeat from 3 with entry length 33
+22:33:30.807271 1 don't match preindex 21 and term 4
+22:33:30.807528 0 recive heartbeat from 3 with entry length 33
+22:33:30.807647 0 don't match preindex 21 and term 4
+22:33:30.910730 4 fail in leader election in term 14
+22:33:30.930622 leader 2 start heartbeat
+22:33:31.014422 leader 3 start heartbeat
+22:33:31.018614 1 recive heartbeat from 3 with entry length 34
+22:33:31.018831 0 recive heartbeat from 3 with entry length 34
+22:33:31.018885 1 don't match preindex 20 and term 4
+22:33:31.018973 0 don't match preindex 20 and term 4
+22:33:31.115006 4 election time is 688ms
+22:33:31.115674 4 start election in term 15
+22:33:31.141411 leader 2 start heartbeat
+22:33:31.224904 leader 3 start heartbeat
+22:33:31.229258 1 recive heartbeat from 3 with entry length 35
+22:33:31.229751 1 don't match preindex 19 and term 4
+22:33:31.229856 0 recive heartbeat from 3 with entry length 35
+22:33:31.230005 0 don't match preindex 19 and term 4
+22:33:31.352510 leader 2 start heartbeat
+22:33:31.435888 leader 3 start heartbeat
+22:33:31.439229 1 recive heartbeat from 3 with entry length 36
+22:33:31.439369 1 don't match preindex 18 and term 4
+22:33:31.439464 0 recive heartbeat from 3 with entry length 36
+22:33:31.439663 0 don't match preindex 18 and term 4
+22:33:31.564878 leader 2 start heartbeat
+22:33:31.646677 leader 3 start heartbeat
+22:33:31.650463 1 recive heartbeat from 3 with entry length 37
+22:33:31.650816 1 don't match preindex 17 and term 4
+22:33:31.650944 0 don't match preindex 17 and term 4
+22:33:31.773878 leader 2 start heartbeat
+22:33:31.804584 4 election time is 521ms
+22:33:31.805164 4 start election in term 16
+22:33:31.857379 leader 3 start heartbeat
+22:33:31.862210 1 recive heartbeat from 3 with entry length 38
+22:33:31.862417 1 don't match preindex 16 and term 4
+22:33:31.862621 0 recive heartbeat from 3 with entry length 38
+22:33:31.862920 0 don't match preindex 16 and term 4
+22:33:31.984306 leader 2 start heartbeat
+22:33:32.001641 3 use Start in index 55 and term 42
+22:33:32.002209 3 log is: 0 1 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 42 42 42 42 
+22:33:32.067845 leader 3 start heartbeat
+22:33:32.071715 1 recive heartbeat from 3 with entry length 40
+22:33:32.071880 1 don't match preindex 15 and term 4
+22:33:32.072206 0 don't match preindex 15 and term 4
+22:33:32.087816 4 fail in leader election in term 16
+22:33:32.194941 leader 2 start heartbeat
+22:33:32.278316 leader 3 start heartbeat
+22:33:32.280428 0 recive heartbeat from 3 with entry length 41
+22:33:32.280560 1 recive heartbeat from 3 with entry length 41
+22:33:32.280564 0 don't match preindex 14 and term 4
+22:33:32.280729 1 don't match preindex 14 and term 4
+22:33:32.328549 4 election time is 595ms
+22:33:32.329218 4 start election in term 17
+22:33:32.405714 leader 2 start heartbeat
+22:33:32.489244 leader 3 start heartbeat
+22:33:32.494302 1 recive heartbeat from 3 with entry length 42
+22:33:32.494480 0 recive heartbeat from 3 with entry length 42
+22:33:32.494539 1 don't match preindex 13 and term 4
+22:33:32.494588 0 don't match preindex 13 and term 4
+22:33:32.616517 leader 2 start heartbeat
+22:33:32.700372 leader 3 start heartbeat
+22:33:32.704319 1 recive heartbeat from 3 with entry length 43
+22:33:32.704464 0 recive heartbeat from 3 with entry length 43
+22:33:32.704532 1 don't match preindex 12 and term 4
+22:33:32.704588 0 don't match preindex 12 and term 4
+22:33:32.827205 leader 2 start heartbeat
+22:33:32.911511 leader 3 start heartbeat
+22:33:32.916049 1 recive heartbeat from 3 with entry length 44
+22:33:32.916160 1 don't match preindex 11 and term 4
+22:33:32.916200 0 recive heartbeat from 3 with entry length 44
+22:33:32.916300 0 don't match preindex 11 and term 4
+22:33:32.926217 4 election time is 713ms
+22:33:32.926342 4 start election in term 18
+22:33:33.038815 leader 2 start heartbeat
+22:33:33.123122 leader 3 start heartbeat
+22:33:33.127135 0 recive heartbeat from 3 with entry length 45
+22:33:33.127221 1 recive heartbeat from 3 with entry length 45
+22:33:33.127308 0 don't match preindex 10 and term 4
+22:33:33.127366 1 don't match preindex 10 and term 4
+22:33:33.233071 4 fail in leader election in term 18
+22:33:33.250357 leader 2 start heartbeat
+22:33:33.334460 leader 3 start heartbeat
+22:33:33.338039 1 recive heartbeat from 3 with entry length 46
+22:33:33.338191 0 recive heartbeat from 3 with entry length 46
+22:33:33.338196 1 don't match preindex 9 and term 3
+22:33:33.338300 0 don't match preindex 9 and term 3
+22:33:33.461659 leader 2 start heartbeat
+22:33:33.545460 leader 3 start heartbeat
+22:33:33.549730 1 recive heartbeat from 3 with entry length 47
+22:33:33.550097 1 don't match preindex 8 and term 3
+22:33:33.550242 4 fail in leader election in term 18
+22:33:33.550408 0 recive heartbeat from 3 with entry length 47
+22:33:33.550509 0 don't match preindex 8 and term 3
+22:33:33.643540 4 election time is 458ms
+22:33:33.644365 4 start election in term 19
+22:33:33.673081 leader 2 start heartbeat
+22:33:33.756211 leader 3 start heartbeat
+22:33:33.762386 1 recive heartbeat from 3 with entry length 48
+22:33:33.763102 1 don't match preindex 7 and term 3
+22:33:33.764713 0 recive heartbeat from 3 with entry length 48
+22:33:33.764834 0 don't match preindex 7 and term 3
+22:33:33.884244 leader 2 start heartbeat
+22:33:33.967524 leader 3 start heartbeat
+22:33:33.972790 0 recive heartbeat from 3 with entry length 49
+22:33:33.972830 1 recive heartbeat from 3 with entry length 49
+22:33:33.972951 0 don't match preindex 6 and term 3
+22:33:33.972989 1 don't match preindex 6 and term 3

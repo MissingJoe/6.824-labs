@@ -86,3 +86,15 @@ md 一个任期只能投给一个leader票，votefor不能因为收到心跳就�
 student guidence 大赞。解决了两个问题：
 1. heartbeat 和 appendentry 是一个东西，只是 heartbeat 里面内容是空的，所以需要的收到 appendentry rpc 中即使是心跳也需要检查条件。
 2. apply 用一个协程一直监控或者 commitindex 改变的时候立马检查
+
+### 2023.2.5
+
+基本写完了代码，接下来要debug
+
+### 2023.2.7
+
+今天的改动主要有两个：
+1. appendentry 失败的时候直接next--，然后等下一次appendentry再试试就行了，不能原地立马重试
+2. 更新 commitindex 要在半数 appendentry 成功之后马上更新
+
+test 剩下 TestBackup2B 一个没过，明天要去北京，争取明早搞定它，不知道有空没有。龙颜大悦！！！
