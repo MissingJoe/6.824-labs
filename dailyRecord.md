@@ -108,3 +108,14 @@ test 剩下 TestBackup2B 一个没过，明天要去北京，争取明早搞定�
 ### 2023.2.13
 
 今日北京归来！成功debug，成为leader之后，votefor不能改1。优化了xlen，xindex和xterm，没优化过不了，而且现在还是时间很久，可能会是个大坑！！！
+
+### 2023.2.16
+
+2c有bug，我重新看一下student guide。有以下几个问题未理解：
+1. If a step says “reply false”, this means you should reply immediately, and not perform any of the subsequent steps. 这里如果直接 reply ，有一个问题是 figure2 里面第 3 点讲了 If an existing entry conflicts with a new one (same index but different terms), delete the existing entry and all that follow it. 这里没太明白！
+Another issue many had (often immediately after fixing the issue above), was that, upon receiving a heartbeat, they would truncate the follower’s log following prevLogIndex, and then append any entries included in the AppendEntries arguments. This is also not correct. We can once again turn to Figure 2:
+The if here is crucial. If the follower has all the entries the leader sent, the follower MUST NOT truncate its log. Any elements following the entries sent by the leader MUST be kept. This is because we could be receiving an outdated AppendEntries RPC from the leader, and truncating the log would mean “taking back” entries that we may have already told the leader that we have in our log.
+
+事实证明不能脑补，直接按照论文一字不差的做事能过的！2C 完成！
+
+今天开始看了一下 lab 2D，怎么感觉又是大工程！晕不想看 Raft 了，今天学别的去了！

@@ -815,6 +815,7 @@ func TestFigure82C(t *testing.T) {
 	nup := servers
 	for iters := 0; iters < 1000; iters++ {
 		leader := -1
+		//DPrintf("22222\n")
 		for i := 0; i < servers; i++ {
 			if cfg.rafts[i] != nil {
 				_, _, ok := cfg.rafts[i].Start(rand.Int())
@@ -823,19 +824,24 @@ func TestFigure82C(t *testing.T) {
 				}
 			}
 		}
-
+		//DPrintf("22223\n")
 		if (rand.Int() % 1000) < 100 {
 			ms := rand.Int63() % (int64(RaftElectionTimeout/time.Millisecond) / 2)
+			//DPrintf("222235\n")
 			time.Sleep(time.Duration(ms) * time.Millisecond)
+			//DPrintf("222231\n")
 		} else {
 			ms := (rand.Int63() % 13)
+			//DPrintf("222234\n")
 			time.Sleep(time.Duration(ms) * time.Millisecond)
+			//DPrintf("222232\n")
 		}
-
+		//DPrintf("22224\n")
 		if leader != -1 {
 			cfg.crash1(leader)
 			nup -= 1
 		}
+		//DPrintf("22225\n")
 
 		if nup < 3 {
 			s := rand.Int() % servers
@@ -845,6 +851,7 @@ func TestFigure82C(t *testing.T) {
 				nup += 1
 			}
 		}
+		//DPrintf("%v\n", iters)
 	}
 
 	for i := 0; i < servers; i++ {
@@ -852,10 +859,11 @@ func TestFigure82C(t *testing.T) {
 			cfg.start1(i, cfg.applier)
 			cfg.connect(i)
 		}
+		//DPrintf("%v/n", i*10)
 	}
 
 	cfg.one(rand.Int(), servers, true)
-
+	//DPrintf("45678\n")
 	cfg.end()
 }
 
