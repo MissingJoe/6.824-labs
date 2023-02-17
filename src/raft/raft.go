@@ -44,24 +44,26 @@ type Entry struct {
 
 // A Go object implementing a single Raft peer.
 type Raft struct {
-	mu        sync.Mutex          // Lock to protect shared access to this peer's state
-	peers     []*labrpc.ClientEnd // RPC end points of all peers
-	persister *Persister          // Object to hold this peer's persisted state
-	me        int                 // this peer's index into peers[]
-	dead      int32               // set by Kill()
-
-	state         int
-	currentTerm   int
-	votedFor      int
-	log           []*Entry
-	applyChan     chan ApplyMsg
-	applyCond     *sync.Cond
-	elctionTime   time.Duration
-	lastTimeStamp time.Time
-	commitIndex   int
-	lastApplied   int
-	nextIndex     []int
-	matchIndex    []int
+	mu                sync.Mutex          // Lock to protect shared access to this peer's state
+	peers             []*labrpc.ClientEnd // RPC end points of all peers
+	persister         *Persister          // Object to hold this peer's persisted state
+	me                int                 // this peer's index into peers[]
+	dead              int32               // set by Kill()
+	state             int
+	currentTerm       int
+	votedFor          int
+	log               []*Entry
+	applyChan         chan ApplyMsg
+	applyCond         *sync.Cond
+	elctionTime       time.Duration
+	lastTimeStamp     time.Time
+	commitIndex       int
+	lastApplied       int
+	nextIndex         []int
+	matchIndex        []int
+	snapshot          []byte
+	lastIncludedIndex int
+	lastIncludedTerm  int
 }
 
 const (
@@ -84,15 +86,18 @@ func (rf *Raft) GetState() (int, bool) {
 	return term, isleader
 }
 
-// save Raft's persistent state to stable storage,
-func (rf *Raft) persist() {
+func (rf *Raft) getRaftState() []byte {
 	w := new(bytes.Buffer)
 	e := labgob.NewEncoder(w)
 	e.Encode(rf.currentTerm)
 	e.Encode(rf.votedFor)
 	e.Encode(rf.log)
-	data := w.Bytes()
-	rf.persister.SaveRaftState(data)
+	return w.Bytes()
+}
+
+// save Raft's persistent state to stable storage,
+func (rf *Raft) persist() {
+	rf.persister.SaveRaftState(rf.getRaftState())
 	s := ""
 	for i, v := range rf.log {
 		s = s + strconv.Itoa(i) + ":" + strconv.Itoa(v.Term)
@@ -133,8 +138,9 @@ func (rf *Raft) readPersist(data []byte) {
 // A service wants to switch to snapshot.  Only do so if Raft hasn't
 // have more recent info since it communicate the snapshot on applyCh.
 func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int, snapshot []byte) bool {
-
 	// Your code here (2D).
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
 
 	return true
 }
@@ -145,7 +151,19 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 // that index. Raft should now trim its log as much as possible.
 func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	// Your code here (2D).
-
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	if index < rf.lastIncludedIndex {
+		return
+	}
+	rf.snapshot = snapshot
+	log := make([]*Entry, len(rf.log)+rf.lastIncludedIndex-index)
+	log[0].Term = rf.log[index-rf.lastIncludedIndex].Term
+	log = append(log, rf.log[index-rf.lastIncludedIndex+1:]...)
+	rf.log = log
+	rf.lastIncludedIndex = index
+	rf.lastIncludedTerm = log[0].Term
+	rf.persister.SaveStateAndSnapshot(rf.getRaftState(), snapshot)
 }
 
 func (rf *Raft) SetElectionTime() {
@@ -419,7 +437,6 @@ func (rf *Raft) broadCastAppendEntry() {
 					rf.state = fellower
 					rf.votedFor = -1
 					rf.currentTerm = appendEntryReply.Term
-					//rf.lastTimeStamp = time.Now()
 					DPrintf("modify currentTerm and voteFor\n")
 					rf.persist()
 					rf.mu.Unlock()
@@ -530,7 +547,6 @@ func (rf *Raft) startElection() {
 					rf.state = fellower
 					rf.currentTerm = voteReply.Term
 					rf.votedFor = -1
-					//rf.lastTimeStamp = time.Now()
 					DPrintf("modify currentTerm and voteFor\n")
 					rf.persist()
 					DPrintf("fail in %v reply bacause term %v bigger than me\n", i, voteReply.Term)
@@ -611,9 +627,10 @@ func (rf *Raft) applier() {
 			DPrintf("%v apply entry index is %v", rf.me, rf.lastApplied+1)
 			// apply the log
 			applyMsg := ApplyMsg{
-				CommandValid: true,
-				Command:      rf.log[rf.lastApplied+1].Command,
-				CommandIndex: rf.lastApplied + 1,
+				CommandValid:  true,
+				Command:       rf.log[rf.lastApplied+1].Command,
+				CommandIndex:  rf.lastApplied + 1,
+				SnapshotValid: false,
 			}
 			rf.applyChan <- applyMsg
 			rf.lastApplied++
@@ -626,17 +643,19 @@ func (rf *Raft) applier() {
 func Make(peers []*labrpc.ClientEnd, me int,
 	persister *Persister, applyCh chan ApplyMsg) *Raft {
 	rf := &Raft{
-		peers:       peers,
-		persister:   persister,
-		me:          me,
-		votedFor:    -1,
-		state:       fellower,
-		currentTerm: 0,
-		applyChan:   applyCh,
-		commitIndex: 0,
-		lastApplied: 0,
-		nextIndex:   make([]int, len(peers)),
-		matchIndex:  make([]int, len(peers)),
+		peers:             peers,
+		persister:         persister,
+		me:                me,
+		votedFor:          -1,
+		state:             fellower,
+		currentTerm:       0,
+		applyChan:         applyCh,
+		commitIndex:       0,
+		lastApplied:       0,
+		nextIndex:         make([]int, len(peers)),
+		matchIndex:        make([]int, len(peers)),
+		lastIncludedIndex: 0,
+		lastIncludedTerm:  0,
 	}
 	rf.log = append(rf.log, &Entry{Term: 0})
 	rf.applyCond = sync.NewCond(&rf.mu)

@@ -119,3 +119,15 @@ The if here is crucial. If the follower has all the entries the leader sent, the
 事实证明不能脑补，直接按照论文一字不差的做事能过的！2C 完成！
 
 今天开始看了一下 lab 2D，怎么感觉又是大工程！晕不想看 Raft 了，今天学别的去了！
+
+### 2023.2.17
+
+今日整了个 obsiden 的 github 主题顺眼多了。
+
+总算是看明白 lab2D 和整个 Raft 的架构。对于 Raft 和整个架构有更深刻的理解。这里面有三个重要的概念：
+1. client 用户：这是用户发起请求的地方，根据应用程序的不同，请求不同
+2. service 节点 server 服务器：这是服务器是处理用户请求的地方。一个分布式集群拥有很多台物理服务器，做物理复制（一种是 state transfer，一种是物理复制）。这台服务器根据应用的不同运行着不同的服务程序，为了保持每个物理服务器的一致性就有了 Raft 这样的一致性算法。 Raft 同样运行在 server 上，用来保持服务器集群的一致性。Raft 只是一个程序，或者说是服务器上运行的一个服务。
+
+快照由两部分组成，一部分是服务器上应用程序的快照（比如数据库应用的键值对），另一部分是 Raft 层中日志 log 的 lastIndex 和 lastTerm，所以 snapshot 由 service 生成，发送给 Raft 去删除冗余日志。当日志数量高到一定程度，service 生成 snapshot 告诉 Raft 节点删除那个 index 之前的日志，保存一下我的 snapshot 就可以。每个 Raft 节点有需要保存自己物理服务器的 snapshot，因为自己可能成为 leader，成为 leader 发现有 fellower 的 log 太慢了，这时候可以不用 appendentry 一次次试着恢复，直接用 rpc（installsnapshot）把 leader 服务器的日志给他，让他发给自己的服务器。因为 snapshot 就是执行完后来的日志后 service 的样子，所以相当于 fellow 的 log 太慢了，不用你 append 之后 apply 给 fellow 的服务器执行，leader 直接告诉你执行后服务器的状态，你改成那个状态就可以。
+
+最后一个问题，就是 fellower 收到 leader 的 snapshot 之后为什么要先给自己物理服务器发一份，等物理服务器保存后，物理服务器调用  condinstallsnapshot 之后 Raft 再保存 snapshot 删除冗余日志。这里是异步的？思考一下
