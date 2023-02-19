@@ -13,17 +13,7 @@ type a struct {
 }
 
 func main() {
-	b := a{}
-	c := make([]byte, 10)
-	if b.ddd == nil {
-		fmt.Println(111)
-	}
-	fmt.Println(b.ddd)
-
-	for i := 0; i < 10; i++ {
-		c[i] = 1
-	}
-	b.ddd = c
-
-	fmt.Println(b.ddd)
+	c := make([]int, 1)
+	c = append(c, 1)
+	fmt.Println(c[0])
 }
