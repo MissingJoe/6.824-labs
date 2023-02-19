@@ -131,3 +131,15 @@ The if here is crucial. If the follower has all the entries the leader sent, the
 快照由两部分组成，一部分是服务器上应用程序的快照（比如数据库应用的键值对），另一部分是 Raft 层中日志 log 的 lastIndex 和 lastTerm，所以 snapshot 由 service 生成，发送给 Raft 去删除冗余日志。当日志数量高到一定程度，service 生成 snapshot 告诉 Raft 节点删除那个 index 之前的日志，保存一下我的 snapshot 就可以。每个 Raft 节点有需要保存自己物理服务器的 snapshot，因为自己可能成为 leader，成为 leader 发现有 fellower 的 log 太慢了，这时候可以不用 appendentry 一次次试着恢复，直接用 rpc（installsnapshot）把 leader 服务器的日志给他，让他发给自己的服务器。因为 snapshot 就是执行完后来的日志后 service 的样子，所以相当于 fellow 的 log 太慢了，不用你 append 之后 apply 给 fellow 的服务器执行，leader 直接告诉你执行后服务器的状态，你改成那个状态就可以。
 
 最后一个问题，就是 fellower 收到 leader 的 snapshot 之后为什么要先给自己物理服务器发一份，等物理服务器保存后，物理服务器调用  condinstallsnapshot 之后 Raft 再保存 snapshot 删除冗余日志。这里是异步的？思考一下
+
+### 2023.2.19
+
+今天是开学前一天，做了 2D 的实验。貌似是完成了，完整的测试在跑，说不定有什么bug。
+
+今天发现一个 go 语言的问题。`a := make([]*Entry,1)` 之后 `a = append(a, &Entry{})`，0 下标访问第一个元素出错，通过测试是在下标 1 的位置。剩下的 bug 都是在索引系统重置之后的一些没修改的！
+
+对于 Raft 的两个疑问
+1. Figure8 里面为什么 leader 更新 commitIndex 的时候需要多数 matchindex 
+2. condinstallsnapshot 和 installsnapshot rpc 为什么异步
+
+有个问题是性能有点差，特别是 installsnapshot 测试耗时很久，能过但是时间有点长。感觉是锁的问题？还是什么的？代码逻辑没有问题

@@ -113,7 +113,7 @@ func make_config(t *testing.T, n int, unreliable bool, snapshot bool) *config {
 func (cfg *config) crash1(i int) {
 	cfg.disconnect(i)
 	cfg.net.DeleteServer(i) // disable client connections to the server.
-	DPrintf("shutdown %v", i)
+	//DPrintf("shutdown %v", i)
 	cfg.mu.Lock()
 	defer cfg.mu.Unlock()
 
@@ -147,7 +147,7 @@ func (cfg *config) checkLogs(i int, m ApplyMsg) (string, bool) {
 	for j := 0; j < len(cfg.logs); j++ {
 		if old, oldok := cfg.logs[j][m.CommandIndex]; oldok && old != v {
 			log.Printf("%v: log %v; server %v\n", i, cfg.logs[i], cfg.logs[j])
-			DPrintf("%v: log %v; server %v\n", i, cfg.logs[i], cfg.logs[j])
+			//DPrintf("%v: log %v; server %v\n", i, cfg.logs[i], cfg.logs[j])
 			// some server has already committed a different value for this entry!
 			err_msg = fmt.Sprintf("commit index=%v server=%v %v != server=%v %v",
 				m.CommandIndex, i, m.Command, j, old)
@@ -175,7 +175,7 @@ func (cfg *config) applier(i int, applyCh chan ApplyMsg) {
 				err_msg = fmt.Sprintf("server %v apply out of order %v", i, m.CommandIndex)
 			}
 			if err_msg != "" {
-				DPrintf("apply error: %v", err_msg)
+				//DPrintf("apply error: %v", err_msg)
 				log.Fatalf("apply error: %v", err_msg)
 				cfg.applyErr[i] = err_msg
 				// keep reading after error so that Raft doesn't block
@@ -279,7 +279,7 @@ func (cfg *config) applierSnap(i int, applyCh chan ApplyMsg) {
 // state persister, to isolate previous instance of
 // this server. since we cannot really kill it.
 func (cfg *config) start1(i int, applier func(int, chan ApplyMsg)) {
-	DPrintf("start or restart kill first %v", i)
+	//DPrintf("start or restart kill first %v", i)
 	cfg.crash1(i)
 
 	// a fresh set of outgoing ClientEnd names.
@@ -336,7 +336,7 @@ func (cfg *config) start1(i int, applier func(int, chan ApplyMsg)) {
 	srv := labrpc.MakeServer()
 	srv.AddService(svc)
 	cfg.net.AddServer(i, srv)
-	DPrintf("start server %v", i)
+	//DPrintf("start server %v", i)
 }
 
 func (cfg *config) checkTimeout() {
@@ -365,7 +365,7 @@ func (cfg *config) cleanup() {
 // attach server i to the net.
 func (cfg *config) connect(i int) {
 	//fmt.Printf("connect(%d)\n", i)
-	DPrintf("connect(%d)\n", i)
+	//DPrintf("connect(%d)\n", i)
 	cfg.connected[i] = true
 
 	// outgoing ClientEnds
@@ -388,7 +388,7 @@ func (cfg *config) connect(i int) {
 // detach server i from the net.
 func (cfg *config) disconnect(i int) {
 	//fmt.Printf("disconnect(%d)\n", i)
-	DPrintf("disconnect(%d)\n", i)
+	//DPrintf("disconnect(%d)\n", i)
 	cfg.connected[i] = false
 
 	// outgoing ClientEnds
