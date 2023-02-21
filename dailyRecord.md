@@ -143,3 +143,14 @@ The if here is crucial. If the follower has all the entries the leader sent, the
 2. condinstallsnapshot 和 installsnapshot rpc 为什么异步
 
 有个问题是性能有点差，特别是 installsnapshot 测试耗时很久，能过但是时间有点长。感觉是锁的问题？还是什么的？代码逻辑没有问题
+
+### 2023.2.23
+
+今天，应该 debug 成功，成功解决 raft 速度过慢的问题。有点阴差阳错，看到一个 blog 里面说，start 不立即同步 log 会很慢，所以试着同步就快了。但是出现 bug。下面是 appendentry 里面，preindexterm 和 fellower 匹配的地方。
+```c++
+rf.log=rf.log[:args.preindex+1]
+rf.log=append(rf.log, args.entry...)
+```
+乍看是没问题的，但是如果心跳频繁就出现了问题。比如，start 频繁导致，有多个 start 10 ---> start 15 （数字表示index）短时间完成，这时候start 10 的心跳被收到同步完成后释放锁，这时候start 11 ---> start 15 的心跳都想获得锁，start 15 先获得。更新 log 完成变成：.......14:term, 15:term，同时更新了 commitindex=15（致命的）。接下来，start 11 的心跳获得锁，根据上述的 appendentry 规则，就会把 log 变成：.......10:term, 11:term。此时当前 fellower 的 applier 不停的工作，但是 log 没了，被删除了。所以在 appendtry 中即使 preindex 比对成功，也不能直接截取，args.entry 与 rf.log 一直的部分不能动，只能动不一致的部分。
+
+今天看了 lab3a 的内容，初看一下还挺简单的。仔细一想才发现有点复杂，复杂的地方主要集中在并发控制上面，刚好是盲点了。代码不急着开动，想清楚再说。下面挪列一下问题：全局线性一致！！！主要问题，怎么保证 server 发给 raft 的 log 还能按顺序从 applych 回收并执行
