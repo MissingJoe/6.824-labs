@@ -20,7 +20,7 @@ type ApplyMsg struct {
 	CommandValid bool
 	Command      interface{}
 	CommandIndex int
-
+	CommandTerm  int
 	// For 2D:
 	SnapshotValid bool
 	Snapshot      []byte
@@ -33,7 +33,6 @@ type Entry struct {
 	Term    int
 }
 
-// A Go object implementing a single Raft peer.
 type Raft struct {
 	mu                sync.Mutex          // Lock to protect shared access to this peer's state
 	peers             []*labrpc.ClientEnd // RPC end points of all peers
@@ -96,7 +95,7 @@ func (rf *Raft) persist() {
 		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
 		s += " "
 	}
-	DPrintf("%v persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
+	//DPrintf("%v persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
 }
 
 // restore previously persisted state.
@@ -111,13 +110,13 @@ func (rf *Raft) readPersist(data []byte) {
 	var lastIncludedIndex int
 	var log []*Entry
 	if d.Decode(&currentTerm) != nil {
-		DPrintf("%v error in decode current term", rf.me)
+		//DPrintf("%v error in decode current term", rf.me)
 	} else if d.Decode(&votedFor) != nil {
-		DPrintf("%v error in decode votefor", rf.me)
+		//DPrintf("%v error in decode votefor", rf.me)
 	} else if d.Decode(&log) != nil {
-		DPrintf("%v error in decode log", rf.me)
+		//DPrintf("%v error in decode log", rf.me)
 	} else if d.Decode(&lastIncludedIndex) != nil {
-		DPrintf("%v error in decode lastIncludeIndex", rf.me)
+		//DPrintf("%v error in decode lastIncludeIndex", rf.me)
 	} else {
 		rf.currentTerm = currentTerm
 		rf.votedFor = votedFor
@@ -129,7 +128,7 @@ func (rf *Raft) readPersist(data []byte) {
 		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
 		s += " "
 	}
-	DPrintf("%v read persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
+	//DPrintf("%v read persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
 }
 
 func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int, snapshot []byte) bool {
@@ -137,7 +136,7 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	if rf.commitIndex >= lastIncludedIndex || lastIncludedIndex <= rf.lastIncludedIndex {
-		DPrintf("%v snapshot index %v term %v is out of fashion", rf.me, lastIncludedIndex, lastIncludedTerm)
+		//DPrintf("%v snapshot index %v term %v is out of fashion", rf.me, lastIncludedIndex, lastIncludedTerm)
 		return false
 	}
 	log := make([]*Entry, 0)
@@ -152,13 +151,13 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 	rf.lastIncludedIndex = lastIncludedIndex
 	rf.lastIncludedTerm = lastIncludedTerm
 	rf.persister.SaveStateAndSnapshot(rf.getRaftState(), snapshot)
-	DPrintf("%v install snapshot with snapIndex %v snapTerm %v", rf.me, rf.lastIncludedIndex, rf.lastIncludedTerm)
+	//DPrintf("%v install snapshot with snapIndex %v snapTerm %v", rf.me, rf.lastIncludedIndex, rf.lastIncludedTerm)
 	s := ""
 	for i, v := range rf.log {
 		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
 		s += " "
 	}
-	DPrintf("%v log:%v", rf.me, s)
+	//DPrintf("%v log:%v", rf.me, s)
 	return true
 }
 
@@ -176,19 +175,19 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	rf.lastIncludedIndex = index
 	rf.lastIncludedTerm = log[0].Term
 	rf.persister.SaveStateAndSnapshot(rf.getRaftState(), snapshot)
-	DPrintf("%v create snapshot with snapIndex %v Term %v", rf.me, index, rf.lastIncludedTerm)
+	//DPrintf("%v create snapshot with snapIndex %v Term %v", rf.me, index, rf.lastIncludedTerm)
 	s := ""
 	for i, v := range rf.log {
 		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
 		s += " "
 	}
-	DPrintf("%v log:%v", rf.me, s)
+	//DPrintf("%v log:%v", rf.me, s)
 }
 
 func (rf *Raft) SetElectionTime() {
 	rand.Seed(time.Now().UnixNano())
 	rf.elctionTime = time.Duration(rand.Intn(200)+300) * time.Millisecond
-	DPrintf("%v election time is %v\n", rf.me, rf.elctionTime)
+	//DPrintf("%v election time is %v\n", rf.me, rf.elctionTime)
 }
 
 type InstallSnapshotArgs struct {
@@ -211,21 +210,21 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 	reply.Term = rf.currentTerm
 
 	if args.Term < rf.currentTerm {
-		DPrintf("%v term %v is smaller than my term %v\n", rf.me, args.Term, rf.currentTerm)
+		//DPrintf("%v term %v is smaller than my term %v\n", rf.me, args.Term, rf.currentTerm)
 		return
 	}
 	if args.Term > rf.currentTerm {
 		rf.currentTerm = args.Term
 		if rf.state != fellower {
-			DPrintf("%v is recive big term so become fellower\n", rf.me)
+			//DPrintf("%v is recive big term so become fellower\n", rf.me)
 			rf.state = fellower
 		}
 		rf.votedFor = -1
-		DPrintf("%v modify currentTerm\n", rf.me)
+		//DPrintf("%v modify currentTerm\n", rf.me)
 		rf.persist()
 	}
 	if args.LastIncludedIndex <= rf.lastIncludedIndex {
-		DPrintf("%v snapshot from %v is out of fashion", rf.me, args.LeaderId)
+		//DPrintf("%v snapshot from %v is out of fashion", rf.me, args.LeaderId)
 		return
 	}
 	applyMsg := ApplyMsg{
@@ -246,17 +245,17 @@ func (rf *Raft) sendInstallSnapshot(server int, args *InstallSnapshotArgs, reply
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	if reply.Term > rf.currentTerm {
-		DPrintf("%v become fellower becase recive big term hb\n", rf.me)
+		//DPrintf("%v become fellower becase recive big term hb\n", rf.me)
 		rf.state = fellower
 		rf.votedFor = -1
 		rf.currentTerm = reply.Term
-		DPrintf("%v modify currentTerm and voteFor\n", rf.me)
+		//DPrintf("%v modify currentTerm and voteFor\n", rf.me)
 		rf.persist()
 		return false
 	}
 	rf.nextIndex[server] = args.LastIncludedIndex + 1
 	rf.matchIndex[server] = args.LastIncludedIndex
-	DPrintf("%v snapshot install rpc to %v successfully snapindex %v", rf.me, server, args.LastIncludedIndex)
+	//DPrintf("%v snapshot install rpc to %v successfully snapindex %v", rf.me, server, args.LastIncludedIndex)
 	return ok
 }
 
@@ -278,17 +277,17 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	reply.VoteGranted = false
 	reply.Term = rf.currentTerm
 	if args.Term < rf.currentTerm {
-		DPrintf("%v term %v is smaller than my term %v\n", rf.me, args.Term, rf.currentTerm)
+		//DPrintf("%v term %v is smaller than my term %v\n", rf.me, args.Term, rf.currentTerm)
 		return
 	}
 	if args.Term > rf.currentTerm {
 		rf.currentTerm = args.Term
 		if rf.state != fellower {
-			DPrintf("%v is recive big term so become fellower\n", rf.me)
+			//DPrintf("%v is recive big term so become fellower\n", rf.me)
 			rf.state = fellower
 		}
 		rf.votedFor = -1
-		DPrintf("%v modify currentTerm\n", rf.me)
+		//DPrintf("%v modify currentTerm\n", rf.me)
 		rf.persist()
 	}
 	if rf.votedFor == -1 || rf.votedFor == args.CandidatedId {
@@ -299,16 +298,16 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		}
 		if lastTerm < args.LastLogTerm || (lastTerm == args.LastLogTerm && args.LastLogIndex >= lastLogIndex+rf.lastIncludedIndex) {
 			reply.VoteGranted = true
-			DPrintf("%v vote for %v in term %v\n", rf.me, args.CandidatedId, rf.currentTerm)
+			//DPrintf("%v vote for %v in term %v\n", rf.me, args.CandidatedId, rf.currentTerm)
 			rf.votedFor = args.CandidatedId
-			DPrintf("%v modify voteFor\n", rf.me)
+			//DPrintf("%v modify voteFor\n", rf.me)
 			rf.persist()
 			rf.lastTimeStamp = time.Now()
 		} else {
-			DPrintf("%v no vote for %v in term %v for term reason\n", rf.me, args.CandidatedId, rf.currentTerm)
+			//DPrintf("%v no vote for %v in term %v for term reason\n", rf.me, args.CandidatedId, rf.currentTerm)
 		}
 	} else {
-		DPrintf("%v already vote for %v and wait for heartbeat\n", rf.me, rf.votedFor)
+		//DPrintf("%v already vote for %v and wait for heartbeat\n", rf.me, rf.votedFor)
 	}
 }
 
@@ -339,19 +338,19 @@ func (rf *Raft) AppendEntry(args *AppendEntryArgs, reply *AppendEntryReply) {
 	defer rf.mu.Unlock()
 	reply.Success = false
 	reply.Term = rf.currentTerm
-	DPrintf("%v recive heartbeat from %v with entry length %v\n", rf.me, args.LeaderId, len(args.Entries))
+	//DPrintf("%v recive heartbeat from %v with entry length %v\n", rf.me, args.LeaderId, len(args.Entries))
 	if args.Term < rf.currentTerm {
-		DPrintf("%v term %v is smaller than my term %v\n", rf.me, args.Term, rf.currentTerm)
+		//DPrintf("%v term %v is smaller than my term %v\n", rf.me, args.Term, rf.currentTerm)
 		return
 	}
 	if args.Term > rf.currentTerm {
 		rf.currentTerm = args.Term
 		if rf.state != fellower {
-			DPrintf("%v is recive big term so become fellower\n", rf.me)
+			//DPrintf("%v is recive big term so become fellower\n", rf.me)
 			rf.state = fellower
 		}
 		rf.votedFor = -1
-		DPrintf("%v modify currentTerm\n", rf.me)
+		//DPrintf("%v modify currentTerm\n", rf.me)
 		rf.persist()
 	}
 	rf.lastTimeStamp = time.Now()
@@ -363,13 +362,13 @@ func (rf *Raft) AppendEntry(args *AppendEntryArgs, reply *AppendEntryReply) {
 		reply.Success = true
 	} else {
 		if args.PrevLogIndex-rf.lastIncludedIndex > len(rf.log)-1 {
-			DPrintf("%v recive appendentry PrevLogIndex %v is empty\n", rf.me, args.PrevLogIndex)
+			//DPrintf("%v recive appendentry PrevLogIndex %v is empty\n", rf.me, args.PrevLogIndex)
 			reply.XTerm = -99
 			reply.XLen = 0
 			for i := args.PrevLogIndex - rf.lastIncludedIndex; i >= len(rf.log); i-- {
 				reply.XLen++
 			}
-			DPrintf("%v recive appendentry xlen is %v\n", rf.me, reply.XLen)
+			//DPrintf("%v recive appendentry xlen is %v\n", rf.me, reply.XLen)
 		} else {
 			if rf.log[args.PrevLogIndex-rf.lastIncludedIndex].Term == args.PrevLogTerm {
 				if len(args.Entries) != 0 {
@@ -384,10 +383,10 @@ func (rf *Raft) AppendEntry(args *AppendEntryArgs, reply *AppendEntryReply) {
 							}
 						}
 					}
-					DPrintf("%v modify log\n", rf.me)
+					//DPrintf("%v modify log\n", rf.me)
 					rf.persist()
 				}
-				DPrintf("%v match preindex %v and term %v\n", rf.me, args.PrevLogIndex, args.PrevLogTerm)
+				//DPrintf("%v match preindex %v and term %v\n", rf.me, args.PrevLogIndex, args.PrevLogTerm)
 				reply.Success = true
 
 				//check leadercommit
@@ -397,17 +396,17 @@ func (rf *Raft) AppendEntry(args *AppendEntryArgs, reply *AppendEntryReply) {
 					} else {
 						rf.commitIndex = len(rf.log) - 1 + rf.lastIncludedIndex
 					}
-					DPrintf("%v fellower commitIndex %v", rf.me, rf.commitIndex)
+					//DPrintf("%v fellower commitIndex %v", rf.me, rf.commitIndex)
 					rf.applyCond.Broadcast()
 				}
 			} else {
-				DPrintf("%v don't match preindex %v and term %v\n", rf.me, args.PrevLogIndex, args.PrevLogTerm)
+				//DPrintf("%v don't match preindex %v and term %v\n", rf.me, args.PrevLogIndex, args.PrevLogTerm)
 				reply.XTerm = rf.log[args.PrevLogIndex-rf.lastIncludedIndex].Term
 				i := args.PrevLogIndex - rf.lastIncludedIndex
 				for ; rf.log[i].Term == reply.XTerm && i >= 1; i-- {
 				}
 				reply.XIndex = i + 1
-				DPrintf("%v don't match preindex xterm is %v, xindex is %v\n", rf.me, reply.XTerm, reply.XIndex)
+				//DPrintf("%v don't match preindex xterm is %v, xindex is %v\n", rf.me, reply.XTerm, reply.XIndex)
 			}
 		}
 	}
@@ -436,8 +435,8 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	}
 	rf.log = append(rf.log, &entry)
 	index = len(rf.log) - 1 + rf.lastIncludedIndex
-	DPrintf("%v use Start in index %v and term %v", rf.me, index, term)
-	DPrintf("%v modify log\n", rf.me)
+	//DPrintf("%v use Start in index %v and term %v", rf.me, index, term)
+	//DPrintf("%v modify log\n", rf.me)
 	rf.persist()
 	rf.mu.Unlock()
 	go rf.broadCastAppendEntry()
@@ -465,7 +464,7 @@ func (rf *Raft) broadCastAppendEntry() {
 		return
 	}
 	rf.mu.Unlock()
-	DPrintf("leader %v start heartbeat\n", rf.me)
+	//DPrintf("leader %v start heartbeat\n", rf.me)
 	var muTemp sync.Mutex
 	cond := sync.NewCond(&muTemp)
 	finished := 1
@@ -475,7 +474,7 @@ func (rf *Raft) broadCastAppendEntry() {
 				rf.mu.Lock()
 				if rf.lastIncludedIndex >= rf.nextIndex[i] {
 					rf.mu.Unlock()
-					DPrintf("%v log in %v is out of fashion installsnapshot of me lastIndex %v", rf.me, i, rf.lastIncludedIndex)
+					//DPrintf("%v log in %v is out of fashion installsnapshot of me lastIndex %v", rf.me, i, rf.lastIncludedIndex)
 					installSnapshotArgs := InstallSnapshotArgs{
 						Term:              term,
 						LeaderId:          rf.me,
@@ -516,11 +515,11 @@ func (rf *Raft) broadCastAppendEntry() {
 				}
 				if appendEntryReply.Term > term {
 					rf.mu.Lock()
-					DPrintf("%v become fellower becase recive big term hb\n", rf.me)
+					//DPrintf("%v become fellower becase recive big term hb\n", rf.me)
 					rf.state = fellower
 					rf.votedFor = -1
 					rf.currentTerm = appendEntryReply.Term
-					DPrintf("%v modify currentTerm and voteFor\n", rf.me)
+					//DPrintf("%v modify currentTerm and voteFor\n", rf.me)
 					rf.persist()
 					rf.mu.Unlock()
 				} else {
@@ -543,7 +542,7 @@ func (rf *Raft) broadCastAppendEntry() {
 								}
 								rf.nextIndex[i] = j + 1 + rf.lastIncludedIndex
 							}
-							DPrintf("%v append entry fail next %v is %v", rf.me, i, rf.nextIndex[i])
+							//DPrintf("%v append entry fail next %v is %v", rf.me, i, rf.nextIndex[i])
 						}
 					}
 					rf.mu.Unlock()
@@ -589,13 +588,13 @@ func (rf *Raft) broadCastAppendEntry() {
 func (rf *Raft) startElection() {
 	rf.mu.Lock()
 	rf.currentTerm++
-	DPrintf("%v start election in term %v\n", rf.me, rf.currentTerm)
+	//DPrintf("%v start election in term %v\n", rf.me, rf.currentTerm)
 	peersCount := len(rf.peers)
 	rf.state = candidate
 	rf.lastTimeStamp = time.Now()
 	rf.votedFor = rf.me
 	currentTerm := rf.currentTerm
-	DPrintf("%v modify currentTerm and voteFor\n", rf.me)
+	//DPrintf("%v modify currentTerm and voteFor\n", rf.me)
 	rf.persist()
 	rf.mu.Unlock()
 	voteCount := 1
@@ -630,9 +629,9 @@ func (rf *Raft) startElection() {
 					rf.state = fellower
 					rf.currentTerm = voteReply.Term
 					rf.votedFor = -1
-					DPrintf("%v modify currentTerm and voteFor\n", rf.me)
+					//DPrintf("%v modify currentTerm and voteFor\n", rf.me)
 					rf.persist()
-					DPrintf("fail in %v reply bacause term %v bigger than me\n", i, voteReply.Term)
+					//DPrintf("fail in %v reply bacause term %v bigger than me\n", i, voteReply.Term)
 					rf.mu.Unlock()
 				} else {
 					if voteReply.VoteGranted {
@@ -656,7 +655,7 @@ func (rf *Raft) startElection() {
 			rf.mu.Unlock()
 			return
 		}
-		DPrintf("%v become new leader in term %v\n", rf.me, rf.currentTerm)
+		//DPrintf("%v become new leader in term %v\n", rf.me, rf.currentTerm)
 		rf.state = leader
 		for i := 0; i < peersCount; i++ {
 			rf.nextIndex[i] = len(rf.log) + rf.lastIncludedIndex
@@ -665,15 +664,15 @@ func (rf *Raft) startElection() {
 		//send heartbeat immediately
 		rf.mu.Unlock()
 		go rf.broadCastAppendEntry()
-		DPrintf("%v finish election become leader", rf.me)
+		//DPrintf("%v finish election become leader", rf.me)
 	} else {
 		//fail to be new leader
 		if rf.state == candidate {
 			rf.state = fellower
 			rf.votedFor = -1
-			DPrintf("%v modify voteFor\n", rf.me)
+			//DPrintf("%v modify voteFor\n", rf.me)
 			rf.persist()
-			DPrintf("%v fail in leader election in term %v\n", rf.me, rf.currentTerm)
+			//DPrintf("%v fail in leader election in term %v\n", rf.me, rf.currentTerm)
 		}
 		rf.mu.Unlock()
 	}
@@ -719,6 +718,7 @@ func (rf *Raft) applier() {
 				Command:       rf.log[rf.lastApplied-rf.lastIncludedIndex].Command,
 				CommandIndex:  rf.lastApplied,
 				SnapshotValid: false,
+				CommandTerm:   rf.log[rf.lastApplied-rf.lastIncludedIndex].Term,
 			}
 			rf.bufferApplyChan <- applyMsg
 		} else {

@@ -13,7 +13,8 @@ type a struct {
 }
 
 func main() {
-	c := make([]int, 1)
-	c = append(c, 1)
-	fmt.Println(c[0])
+	c := make(map[int]string, 1)
+	c[0] = "a"
+	a, b := c[1]
+	fmt.Println(a, b)
 }

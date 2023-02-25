@@ -1,20 +1,24 @@
 package kvraft
 
-import "6.824/labrpc"
-import "testing"
-import "os"
+import (
+	"os"
+	"testing"
 
-// import "log"
-import crand "crypto/rand"
-import "math/big"
-import "math/rand"
-import "encoding/base64"
-import "sync"
-import "runtime"
-import "6.824/raft"
-import "fmt"
-import "time"
-import "sync/atomic"
+	"6.824/labrpc"
+
+	// import "log"
+	crand "crypto/rand"
+	"encoding/base64"
+	"fmt"
+	"math/big"
+	"math/rand"
+	"runtime"
+	"sync"
+	"sync/atomic"
+	"time"
+
+	"6.824/raft"
+)
 
 func randstring(n int) string {
 	b := make([]byte, 2*n)
@@ -105,7 +109,7 @@ func (cfg *config) SnapshotSize() int {
 // attach server i to servers listed in to
 // caller must hold cfg.mu
 func (cfg *config) connectUnlocked(i int, to []int) {
-	// log.Printf("connect peer %d to %v\n", i, to)
+	DPrintf("connect peer %d to %v\n", i, to)
 
 	// outgoing socket files
 	for j := 0; j < len(to); j++ {
@@ -129,7 +133,7 @@ func (cfg *config) connect(i int, to []int) {
 // detach server i from the servers listed in from
 // caller must hold cfg.mu
 func (cfg *config) disconnectUnlocked(i int, from []int) {
-	// log.Printf("disconnect peer %d from %v\n", i, from)
+	DPrintf("disconnect peer %d from %v\n", i, from)
 
 	// outgoing socket files
 	for j := 0; j < len(from); j++ {
