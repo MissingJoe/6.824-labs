@@ -12,6 +12,6 @@ This is a repo for missingjoe to record the timeline of working on 6.824 labs.
 |              Lab 2C: Raft-persistence               | &#9745; |
 |             Lab 2D: Raft-log compaction             | &#9745; |
 | Lab 3A: KV Raft-Key/value service without snapshots | &#9745; |
-|  Lab 3B: KV Raft-Key/value service with snapshots   | &#9744; |
+|  Lab 3B: KV Raft-Key/value service with snapshots   | &#9745; |
 |       Lab 4A: Shared KV-The Shard controller        | &#9744; |
 |     Lab 4B: Shared KV-Sharded Key/Value Server      | &#9744; |

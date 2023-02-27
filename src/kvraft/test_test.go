@@ -121,10 +121,10 @@ func spawn_clients_and_wait(t *testing.T, cfg *config, ncli int, fn func(me int,
 		ca[cli] = make(chan bool)
 		go run_client(t, cfg, cli, ca[cli], fn)
 	}
-	// log.Printf("spawn_clients_and_wait: waiting for clients")
+	//DPrintf("spawn_clients_and_wait: waiting for clients")
 	for cli := 0; cli < ncli; cli++ {
 		ok := <-ca[cli]
-		// log.Printf("spawn_clients_and_wait: client %d is done\n", cli)
+		//DPrintf("spawn_clients_and_wait: client %d is done\n", cli)
 		if ok == false {
 			t.Fatalf("failure")
 		}
@@ -256,7 +256,7 @@ func GenericTest(t *testing.T, part string, nclients int, nservers int, unreliab
 		clnts[i] = make(chan int)
 	}
 	for i := 0; i < 3; i++ {
-		DPrintf("Iteration %v\n", i)
+		//DPrintf("Iteration %v and nclients is %v\n", i, nclients)
 		atomic.StoreInt32(&done_clients, 0)
 		atomic.StoreInt32(&done_partitioner, 0)
 		go spawn_clients_and_wait(t, cfg, nclients, func(cli int, myck *Clerk, t *testing.T) {
@@ -277,7 +277,7 @@ func GenericTest(t *testing.T, part string, nclients int, nservers int, unreliab
 				}
 				nv := "x " + strconv.Itoa(cli) + " " + strconv.Itoa(j) + " y"
 				if (rand.Int() % 1000) < 500 {
-					DPrintf("%d: client new append %v\n", cli, nv)
+					//DPrintf("%d: client new append %v\n", cli, nv)
 					Append(cfg, myck, key, nv, opLog, cli)
 					if !randomkeys {
 						last = NextValue(last, nv)
@@ -289,7 +289,7 @@ func GenericTest(t *testing.T, part string, nclients int, nservers int, unreliab
 					Put(cfg, myck, key, nv, opLog, cli)
 					j++
 				} else {
-					DPrintf("%d: client new get %v\n", cli, key)
+					//DPrintf("%d: client new get %v\n", cli, key)
 					v := Get(cfg, myck, key, opLog, cli)
 					// the following check only makes sense when we're not using random keys
 					if !randomkeys && v != last {
@@ -337,15 +337,15 @@ func GenericTest(t *testing.T, part string, nclients int, nservers int, unreliab
 			cfg.ConnectAll()
 		}
 
-		DPrintf("wait for clients\n")
+		//DPrintf("wait for clients\n")
 		for i := 0; i < nclients; i++ {
-			DPrintf("read from clients %d\n", i)
+			//DPrintf("read from clients %d\n", i)
 			j := <-clnts[i]
 			if j < 10 {
 				DPrintf("Warning: client %d managed to perform only %d put operations in 1 sec?\n", i, j)
 			}
 			key := strconv.Itoa(i)
-			DPrintf("Check %v for client %d\n", j, i)
+			//DPrintf("Check %v for client %d\n", j, i)
 			v := Get(cfg, ck, key, opLog, 0)
 			if !randomkeys {
 				checkClntAppends(t, i, v, j)

@@ -11,8 +11,6 @@ import (
 	"math/rand"
 	"time"
 
-	"strconv"
-
 	"6.824/labrpc"
 )
 
@@ -87,15 +85,22 @@ func (rf *Raft) getRaftState() []byte {
 	return w.Bytes()
 }
 
+func (rf *Raft) GetRaftStateSize() int {
+	rf.mu.Lock()
+	len := rf.persister.RaftStateSize()
+	rf.mu.Unlock()
+	return len
+}
+
 // save Raft's persistent state to stable storage,
 func (rf *Raft) persist() {
 	rf.persister.SaveRaftState(rf.getRaftState())
-	s := ""
-	for i, v := range rf.log {
-		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
-		s += " "
-	}
-	//DPrintf("%v persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
+	// s := ""
+	// for i, v := range rf.log {
+	// 	s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
+	// 	s += " "
+	// }
+	// DPrintf("%v persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
 }
 
 // restore previously persisted state.
@@ -123,11 +128,11 @@ func (rf *Raft) readPersist(data []byte) {
 		rf.log = log
 		rf.lastIncludedIndex = lastIncludedIndex
 	}
-	s := ""
-	for i, v := range rf.log {
-		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
-		s += " "
-	}
+	// s := ""
+	// for i, v := range rf.log {
+	// 	s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
+	// 	s += " "
+	// }
 	//DPrintf("%v read persist currentTerm %v votedFor %v lastIncludeIndex %v log:%v", rf.me, rf.currentTerm, rf.votedFor, rf.lastIncludedIndex, s)
 }
 
@@ -152,11 +157,11 @@ func (rf *Raft) CondInstallSnapshot(lastIncludedTerm int, lastIncludedIndex int,
 	rf.lastIncludedTerm = lastIncludedTerm
 	rf.persister.SaveStateAndSnapshot(rf.getRaftState(), snapshot)
 	//DPrintf("%v install snapshot with snapIndex %v snapTerm %v", rf.me, rf.lastIncludedIndex, rf.lastIncludedTerm)
-	s := ""
-	for i, v := range rf.log {
-		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
-		s += " "
-	}
+	// s := ""
+	// for i, v := range rf.log {
+	// 	s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
+	// 	s += " "
+	// }
 	//DPrintf("%v log:%v", rf.me, s)
 	return true
 }
@@ -176,11 +181,11 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 	rf.lastIncludedTerm = log[0].Term
 	rf.persister.SaveStateAndSnapshot(rf.getRaftState(), snapshot)
 	//DPrintf("%v create snapshot with snapIndex %v Term %v", rf.me, index, rf.lastIncludedTerm)
-	s := ""
-	for i, v := range rf.log {
-		s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
-		s += " "
-	}
+	// s := ""
+	// for i, v := range rf.log {
+	// 	s = s + strconv.Itoa(i+rf.lastIncludedIndex) + ":" + strconv.Itoa(v.Term)
+	// 	s += " "
+	// }
 	//DPrintf("%v log:%v", rf.me, s)
 }
 
@@ -473,7 +478,6 @@ func (rf *Raft) broadCastAppendEntry() {
 			go func(i int, term int) {
 				rf.mu.Lock()
 				if rf.lastIncludedIndex >= rf.nextIndex[i] {
-					rf.mu.Unlock()
 					//DPrintf("%v log in %v is out of fashion installsnapshot of me lastIndex %v", rf.me, i, rf.lastIncludedIndex)
 					installSnapshotArgs := InstallSnapshotArgs{
 						Term:              term,
@@ -484,6 +488,7 @@ func (rf *Raft) broadCastAppendEntry() {
 						Data:              rf.snapshot,
 						Done:              true,
 					}
+					rf.mu.Unlock()
 					installSnapshotReply := InstallSnapshotReply{}
 					go rf.sendInstallSnapshot(i, &installSnapshotArgs, &installSnapshotReply)
 					return
@@ -712,7 +717,7 @@ func (rf *Raft) applier() {
 		if rf.lastApplied < rf.commitIndex {
 			// apply the log
 			rf.lastApplied++
-			DPrintf("%v apply entry index is %v", rf.me, rf.lastApplied)
+			//DPrintf("%v apply entry index is %v", rf.me, rf.lastApplied)
 			applyMsg := ApplyMsg{
 				CommandValid:  true,
 				Command:       rf.log[rf.lastApplied-rf.lastIncludedIndex].Command,
@@ -744,7 +749,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		matchIndex:        make([]int, len(peers)),
 		lastIncludedIndex: 0,
 		lastIncludedTerm:  0,
-		bufferApplyChan:   make(chan ApplyMsg, 20),
+		bufferApplyChan:   make(chan ApplyMsg, 1000),
 	}
 	rf.log = append(rf.log, &Entry{Term: 0})
 	rf.applyCond = sync.NewCond(&rf.mu)
