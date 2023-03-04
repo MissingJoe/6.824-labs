@@ -4,17 +4,20 @@ import (
 	"fmt"
 )
 
-func c(a []int) {
-	a[0] = 1
-}
-
-type a struct {
-	ddd []byte
+type sss struct {
+	gg map[int]int
+	a  [10]int
 }
 
 func main() {
-	c := make(map[int]string, 1)
-	c[0] = "a"
-	a, b := c[1]
-	fmt.Println(a, b)
+	c := sss{}
+	c.gg = make(map[int]int)
+	c.a[1] = 1
+	fmt.Println(c.a)
+	b := c
+	b.a[1] = 2
+	fmt.Println(b.a)
+	a := make(map[int][]int, 1)
+	a[1] = append(a[1], 1)
+	fmt.Println(a)
 }

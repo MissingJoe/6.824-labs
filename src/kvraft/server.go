@@ -92,22 +92,23 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		SeqId:     args.SeqId,
 	}
 	index, _, isLeader := kv.rf.Start(*op)
+	kv.mu.Lock()
 	if !isLeader {
 		////DPrintf("%v clientid %v start get in raft fail for wrong leader", kv.me, args.ClientId)
+		kv.mu.Unlock()
 		reply.Err = ErrWrongLeader
 		return
 	}
-	//DPrintf("%v clientid %v seqId %v op %v key %v get success start in raft", kv.me, args.ClientId&999, args.SeqId, "Get", args.Key)
+	DPrintf("%v clientid %v seqId %v op %v key %v get success start in raft", kv.me, args.ClientId&999, args.SeqId, "Get", args.Key)
 	respondCh := make(chan *opInfo, 1)
-	kv.mu.Lock()
 	kv.opRecord[index] = respondCh
 	kv.mu.Unlock()
 	select {
 	case respond := <-respondCh:
-		//DPrintf("%v clientid %v seqId %v get success reply from raft", kv.me, args.ClientId&999, args.SeqId)
+		DPrintf("%v clientid %v seqId %v get success reply from raft", kv.me, args.ClientId&999, args.SeqId)
 		reply.Err, reply.Value = respond.err, respond.value
 	case <-time.After(1000 * time.Millisecond):
-		//DPrintf("%v clientid %v seqId %v get in raft timeout", kv.me, args.ClientId&999, args.SeqId)
+		DPrintf("%v clientid %v seqId %v get in raft timeout", kv.me, args.ClientId&999, args.SeqId)
 		reply.Err = TimeOut
 	}
 	kv.mu.Lock()
@@ -134,22 +135,23 @@ func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		SeqId:     args.SeqId,
 	}
 	index, _, isLeader := kv.rf.Start(*op)
+	kv.mu.Lock()
 	if !isLeader {
 		////DPrintf("%v clientid %v start putappend in raft fail for wrong leader", kv.me, args.ClientId)
+		kv.mu.Unlock()
 		reply.Err = ErrWrongLeader
 		return
 	}
-	//DPrintf("%v clientid %v seqId %v op %v key %v putappend success start in raft", kv.me, args.ClientId&999, args.SeqId, args.Op, args.Key)
+	DPrintf("%v clientid %v seqId %v op %v key %v putappend success start in raft", kv.me, args.ClientId&999, args.SeqId, args.Op, args.Key)
 	respondCh := make(chan *opInfo, 1)
-	kv.mu.Lock()
 	kv.opRecord[index] = respondCh
 	kv.mu.Unlock()
 	select {
 	case respond := <-respondCh:
-		//DPrintf("%v clientid %v seqId %v putappend success reply from raft", kv.me, args.ClientId&999, args.SeqId)
+		DPrintf("%v clientid %v seqId %v putappend success reply from raft", kv.me, args.ClientId&999, args.SeqId)
 		reply.Err = respond.err
 	case <-time.After(1000 * time.Millisecond):
-		//DPrintf("%v clientid %v seqId %v putappend in raft timeout", kv.me, args.ClientId&999, args.SeqId)
+		DPrintf("%v clientid %v seqId %v putappend in raft timeout", kv.me, args.ClientId&999, args.SeqId)
 		reply.Err = TimeOut
 	}
 	kv.mu.Lock()
@@ -189,10 +191,10 @@ func (kv *KVServer) listen() {
 		case msg := <-kv.applyCh:
 			if msg.CommandValid {
 				command := msg.Command.(Op)
-				//DPrintf("%v recive command apply from raft index %v op %v key %v", kv.me, msg.CommandIndex, command.Operation, command.Key)
+				DPrintf("%v recive command apply from raft index %v op %v key %v", kv.me, msg.CommandIndex, command.Operation, command.Key)
 				kv.mu.Lock()
 				if kv.lastApplied >= msg.CommandIndex {
-					//DPrintf("%v commandIndex is out of date because of snapshot", kv.me)
+					DPrintf("%v commandIndex is out of date because of snapshot", kv.me)
 					kv.mu.Unlock()
 					continue
 				}
@@ -206,9 +208,10 @@ func (kv *KVServer) listen() {
 					} else {
 						respond.err = ErrNoKey
 					}
+					kv.clientRequest[command.ClientId] = command.SeqId
 				} else {
 					if seqId, ok := kv.clientRequest[command.ClientId]; ok && command.SeqId <= seqId {
-						//DPrintf("%v recive msg clientId %v seqid %v is smaller than me %v", kv.me, command.ClientId&999, command.SeqId, kv.clientRequest[command.ClientId])
+						DPrintf("%v recive msg clientId %v seqid %v is smaller than me %v", kv.me, command.ClientId&999, command.SeqId, kv.clientRequest[command.ClientId])
 						respond.err = OK
 					} else {
 						if command.Operation == "Put" {
@@ -228,16 +231,16 @@ func (kv *KVServer) listen() {
 				}
 				if kv.maxraftstate > 0 && kv.rf.GetRaftStateSize() > kv.maxraftstate {
 					kv.rf.Snapshot(msg.CommandIndex, kv.createSnapshot())
-					//DPrintf("%v generate snapshot in commandIndex %v", kv.me, msg.CommandIndex)
+					DPrintf("%v generate snapshot in commandIndex %v", kv.me, msg.CommandIndex)
 				}
 				kv.mu.Unlock()
 			} else if msg.SnapshotValid {
-				//DPrintf("%v recive snapshot apply from raft index %v", kv.me, msg.SnapshotIndex)
+				DPrintf("%v recive snapshot apply from raft index %v", kv.me, msg.SnapshotIndex)
 				kv.mu.Lock()
 				if len(msg.Snapshot) > 0 && kv.rf.CondInstallSnapshot(msg.SnapshotTerm, msg.SnapshotIndex, msg.Snapshot) {
 					kv.readSnapshot(msg.Snapshot)
 					kv.lastApplied = msg.SnapshotIndex
-					//DPrintf("%v install snapshot index %v", kv.me, msg.SnapshotIndex)
+					DPrintf("%v install snapshot index %v", kv.me, msg.SnapshotIndex)
 				}
 				kv.mu.Unlock()
 			} else {

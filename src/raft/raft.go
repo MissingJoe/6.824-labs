@@ -660,7 +660,7 @@ func (rf *Raft) startElection() {
 			rf.mu.Unlock()
 			return
 		}
-		//DPrintf("%v become new leader in term %v\n", rf.me, rf.currentTerm)
+		DPrintf("%v become new leader in term %v\n", rf.me, rf.currentTerm)
 		rf.state = leader
 		for i := 0; i < peersCount; i++ {
 			rf.nextIndex[i] = len(rf.log) + rf.lastIncludedIndex

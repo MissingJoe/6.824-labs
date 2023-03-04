@@ -32,7 +32,7 @@ func MakeClerk(servers []*labrpc.ClientEnd) *Clerk {
 	ck.clientId = nrand()
 	ck.seqId = 0
 	ck.leaderId = 0
-	//DPrintf("client %v is wake", ck.clientId&999)
+	DPrintf("client %v is wake", ck.clientId&999)
 	return ck
 }
 
@@ -42,24 +42,21 @@ func (ck *Clerk) Get(key string) string {
 		ClientId: ck.clientId,
 		SeqId:    atomic.AddInt64(&ck.seqId, 1),
 	}
-	reply := GetReply{}
 	for {
 		ck.mu.Lock()
 		leader := ck.leaderId
 		ck.mu.Unlock()
-		////DPrintf("%v get with key %v seq %v leader %v", ck.clientId, key, args.SeqId, leader)
+		var reply GetReply
 		ok := ck.servers[leader].Call("KVServer.Get", &args, &reply)
 		if ok && (reply.Err == OK || reply.Err == ErrNoKey) {
-			//DPrintf("%v success get with key %v seq %v", ck.clientId, key, args.SeqId)
-			break
+			DPrintf("%v success get with key %v seq %v", ck.clientId, key, args.SeqId)
+			return reply.Value
 		}
 		ck.mu.Lock()
 		ck.leaderId = (ck.leaderId + 1) % len(ck.servers)
-		reply = GetReply{}
 		ck.mu.Unlock()
 		time.Sleep(time.Millisecond)
 	}
-	return reply.Value
 }
 
 func (ck *Clerk) PutAppend(key string, value string, op string) {
@@ -74,20 +71,15 @@ func (ck *Clerk) PutAppend(key string, value string, op string) {
 		ck.mu.Lock()
 		leader := ck.leaderId
 		ck.mu.Unlock()
-		reply := PutAppendReply{}
-		// if args.Op == "Put" {
-		// 	//DPrintf("%v put with key %v value %v seq %v leader %v", ck.clientId, key, value, args.SeqId, leader)
-		// } else {
-		// 	//DPrintf("%v append with key %v value %v seq %v leader %v", ck.clientId, key, value, args.SeqId, leader)
-		// }
+		var reply PutAppendReply
 		ok := ck.servers[leader].Call("KVServer.PutAppend", &args, &reply)
 		if ok && reply.Err == OK {
 			if args.Op == "Put" {
-				//DPrintf("%v put with key %v value %v seq %v", ck.clientId&999, key, value, args.SeqId)
+				DPrintf("%v put with key %v value %v seq %v", ck.clientId&999, key, value, args.SeqId)
 			} else {
-				//DPrintf("%v append with key %v value %v seq %v", ck.clientId&999, key, value, args.SeqId)
+				DPrintf("%v append with key %v value %v seq %v", ck.clientId&999, key, value, args.SeqId)
 			}
-			break
+			return
 		}
 		ck.mu.Lock()
 		ck.leaderId = (ck.leaderId + 1) % len(ck.servers)
